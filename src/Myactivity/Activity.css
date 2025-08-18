@@ -1,0 +1,269 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.main {
+  min-height: 100vh;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+
+
+
+.mainbox {
+  display: flex;
+  flex-wrap: wrap;       /* allow wrapping to next row */
+  gap: 20px;             /* space between boxes */
+  padding: 10px;         /* space inside parent */
+  justify-content: flex-start; /* or center, or space-between */
+  align-items: flex-start;
+  overflow-y: auto;
+  height: auto;
+   overflow-x: hidden;
+   width:100vw;
+   height:100vh;
+}
+
+
+
+
+.SlideBar td {
+  width: 250px;
+
+  border-radius: 10px;
+  padding: 10px;
+  height: 5vh;
+  
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.SlideBar {
+  position:absolute;
+  top: 5px;
+  left: 5px;
+  height: 100vh;
+  width: 330px;
+  position:absolute;
+  display: flex;
+}
+
+.SlideBar td:hover {
+  background-color: #69695c;
+  cursor: pointer;
+  border-radius: 55px;
+}
+
+.table-border {
+  border-right: 1px solid black;
+  border-collapse: collapse; /* optional, removes double borders */
+}
+
+
+
+.main-content {
+
+
+  position:absolute;
+  top:24px;
+  left:320px;
+  /* right: 52px; */
+  
+}
+
+
+
+
+                /* Navbar  */
+
+
+.navbar td {
+  width: 280px;
+
+  /* border-radius: 10px; */
+  padding: 10px;
+  margin: 10px;
+  height: 2vh;
+
+  /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); */
+}
+
+.navbar {
+  /* position: fixed; */
+  /* position:absolute; */
+  top: 5px;
+  left: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;;
+}
+
+
+
+.navbar td2{
+  left  : 20px;
+  padding :15px;
+}
+
+
+
+
+
+
+                                             /* Dashboard */
+
+    .dashboards  {
+  /* position: fixed; */
+  position:absolute;
+  top: 80px;
+  left: 0px;
+  padding-left: 4px;
+  padding-top: 5px;
+  background-color:  #EBF5F0;
+  border-radius: 5px;
+  width: 98%;
+}                                         
+
+
+                                         
+                                           /* Ticket  */
+
+
+
+
+
+.ticket-container {
+  /* position: fixed; */
+  /* flex: 1 1 100%; */
+  position :absolute;
+  top: 160px;
+  left: 0px;
+  /* width: calc(100% - 275px); */
+  width:98%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;  /* pushes children to left and right ends */
+  align-items: center;
+color:white;
+  /* border: 1px solid rgb(35, 47, 188); */
+  background-color: #5416cf;
+  box-sizing: border-box;
+  /* box-shadow: 0 0 12px rgba(66, 142, 76, 0.4); */
+ 
+  /* color:white; */
+  border-radius: 5px;
+}
+
+
+
+
+
+.ticket-container {
+  /* position: fixed; */
+  /* flex: 1 1 100%; */
+  position :absolute;
+  top: 160px;
+  left: 0px;
+  /* width: calc(100% - 275px); */
+  width:98%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;  /* pushes children to left and right ends */
+  align-items: center;
+color:white;
+  /* border: 1px solid rgb(35, 47, 188); */
+  background-color: #5416cf;
+  box-sizing: border-box;
+  /* box-shadow: 0 0 12px rgba(66, 142, 76, 0.4); */
+ 
+  /* color:white; */
+  border-radius: 5px;
+}
+
+
+
+
+                                              /* Main Content */
+
+
+  .box-container {
+position: fixed;
+position:absolute;
+  top: 240px;
+  left: 275px;
+  width: calc(100% - 275px);
+  padding: 10px;
+  display: flex;
+   justify-content: space-between;  
+   align-items: center;
+
+  
+  background-color: #fcfbfe;
+  box-shadow: 0 0 12px rgba(66, 142, 76, 0.4);
+gap:20px;
+   flex-wrap: wrap;
+  padding: 10px; 
+} 
+
+
+.dynamic-box {
+  position: absolute;
+  top: 240px;
+  width: 98%;
+  height: 100vh;
+  background-color: #f5f5f5;
+  
+  display: flex;
+  flex-wrap: wrap;         
+  gap: 20px;              
+  padding: 10px;
+  box-sizing: border-box;
+
+  align-items: center;
+  justify-content: center;
+
+ 
+  border-top: 1px solid #1b9c73;
+border-left: 1px solid #7e7a8f;
+border-right: 1px solid #7e7a8f;
+border-bottom: 10px solid #7e7a8f;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+
+
+ 
+
+.boxes {
+  width: calc(25% - 30px); /* 4 boxes per row */
+  height: 230px;
+
+  background-color: #ffffff;
+  color: #000;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px;
+  
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  text-align: center;
+  transition: transform 0.2s;
+ box-shadow: 0 4px 8px #3ae7b6;
+
+}
+
+.boxes:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+
