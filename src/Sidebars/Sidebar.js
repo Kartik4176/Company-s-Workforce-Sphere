@@ -13,7 +13,7 @@ function Sidebar (){
             <table className='table-border'>
                 <thead>
                     <tr>
-                        <td ><img src ="/image/sidebar/logo.png"  alt=""  width="100" textAlign='center'/></td>
+                        <td ><img src ="/image/sidebar/logo.png"  alt=""  width="210px" textAlign='center'  cursor= "default" /></td>
                     </tr>
 
                    

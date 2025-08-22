@@ -5,6 +5,8 @@ import NavBaar from "../../NavBar/NavBaar";
 // import { useState, useEffect } from "react";
 import React, { useState, useEffect, useRef } from "react";
 
+
+
 function Attendance() {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
@@ -90,6 +92,37 @@ useEffect(() => {
 
 
 
+
+
+
+
+
+// Attendance meter functionality
+const [progress, setProgress] = useState(0);
+
+useEffect(() => {
+  if (!isPunchIn) {
+    setProgress(0); // reset when not punched in
+    return;
+  }
+
+  const totalSeconds =   60; // 10 hours = 36000 seconds (full bar)
+
+  const updateProgress = () => {
+    const percent = Math.min((seconds / totalSeconds) * 100, 100);
+    setProgress(percent);
+  };
+
+  updateProgress();
+}, [seconds, isPunchIn]);
+
+
+
+
+
+
+
+
   return (
     <div className="main">
       <div className="mainbox">
@@ -146,8 +179,9 @@ useEffect(() => {
               </p>
 
               <div className="Atten-meter">
-                <div className="meter"></div>
-              </div>
+  <div className="meter" style={{ width: `${progress}%` }}></div>
+</div>
+
 
 
 <p className="timer">
