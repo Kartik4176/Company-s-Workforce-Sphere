@@ -7,7 +7,15 @@ import React, { useState, useEffect, useRef } from "react";
 
 
 
+  
 function Attendance() {
+
+// state to store latest punch-in time
+const [latestPunchInTime, setLatestPunchInTime] = useState(null);
+
+
+
+// Current date and time functionality
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
   useEffect(() => {
@@ -37,13 +45,17 @@ function Attendance() {
   // Punch in , punch out functionality
   
 
-
-
-
-
 const [isPunchIn, setIsPunchIn] = useState(false);
 const [seconds, setSeconds] = useState(0);
-const [showPopup, setShowPopup] = useState(false); // for popup visibility
+
+const [selectedOption, setSelectedOption] = useState(null); // Work From Home / Office
+const [selectedOffice, setSelectedOffice] = useState(null); // Noida/Gurugram/Bengaluru
+
+// popup states
+const [showWorkModePopup, setShowWorkModePopup] = useState(false);
+const [showOfficePopup, setShowOfficePopup] = useState(false);
+const [showBreakPopup, setShowBreakPopup] = useState(false);
+
 const timerRef = useRef(null);
 
 const formatTime = (totalSeconds) => {
@@ -55,40 +67,98 @@ const formatTime = (totalSeconds) => {
     .padStart(2, "0")}`;
 };
 
-const handlePunchIn = () => {
-  if (!isPunchIn) {
-    setIsPunchIn(true);
-    timerRef.current = setInterval(() => {
-      setSeconds((prev) => prev + 1);
-    }, 1000);
-  }
+const startTimer = () => {
+  timerRef.current = setInterval(() => {
+    setSeconds((prev) => prev + 1);
+  }, 1000);
 };
 
-const handlePunchOut = () => {
-  // Instead of stopping immediately, show popup
-  setShowPopup(true);
-};
-
-const handleBreakOption = (type) => {
-  setIsPunchIn(false);
+const stopTimer = () => {
   if (timerRef.current) {
     clearInterval(timerRef.current);
     timerRef.current = null;
   }
-
-  if (type === "end") {
-    setSeconds(0); // reset only for End Work
-  }
-
-  setShowPopup(false); // close popup
 };
 
-// Cleanup on unmount
+
+const handlePunchIn = () => {
+  if (!isPunchIn) {
+    if (!selectedOption) {
+      setShowWorkModePopup(true);
+    } else {
+      setIsPunchIn(true);
+      setLatestPunchInTime(new Date());
+      startTimer();
+
+      const now = new Date();
+      // check if current time is after 10:30 AM
+      if (
+        now.getHours() > EXTRA_START_HOUR ||
+        (now.getHours() === EXTRA_START_HOUR && now.getMinutes() >= EXTRA_START_MINUTE)
+      ) {
+        startExtraTimer();
+      }
+    }
+  }
+};
+
+
+
+
+const handlePunchOut = () => {
+  setIsPunchIn(false);
+  stopTimer();       // regular timer
+  stopExtraTimer();  // pause extra timer
+  setShowBreakPopup(true);
+};
+
+
+
+// Break option handler
+const handleBreakOption = (type) => {
+  if (type === "end") {
+    setSeconds(0);
+    setExtraTime(0);      // reset extra timer
+    setSelectedOption(null);
+    setSelectedOffice(null);
+  }
+  setShowBreakPopup(false);
+};
+
+
+
+
+const handleOptionSelect = (option) => {
+  setSelectedOption(option);
+
+  if (option === "Work From Home") {
+    setShowWorkModePopup(false);
+    setIsPunchIn(true);
+    startTimer();
+  } else if (option === "Office") {
+    setShowWorkModePopup(false);
+    setShowOfficePopup(true); // now show office list instead of break popup
+  }
+};
+
+const handleOfficeSelect = (office) => {
+  setSelectedOffice(office);
+  setShowOfficePopup(false);
+  setIsPunchIn(true);
+  setLatestPunchInTime(new Date()); //  save latest punch-in immediately
+  startTimer();
+};
+
+
 useEffect(() => {
   return () => {
-    if (timerRef.current) clearInterval(timerRef.current);
+    stopTimer();
   };
 }, []);
+
+
+
+
 
 
 
@@ -106,7 +176,7 @@ useEffect(() => {
     return;
   }
 
-  const totalSeconds =   60; // 10 hours = 36000 seconds (full bar)
+  const totalSeconds =   60; // seconds mai le raha hai.
 
   const updateProgress = () => {
     const percent = Math.min((seconds / totalSeconds) * 100, 100);
@@ -119,6 +189,74 @@ useEffect(() => {
 
 
 
+                                        //  Extra time shown 
+
+// Extra timer
+const [extraTime, setExtraTime] = useState(0);
+const extraTimerRef = useRef(null);
+const EXTRA_START_HOUR = 19;
+const EXTRA_START_MINUTE = 0;
+
+
+
+// Start extra timer
+const startExtraTimer = () => {
+  if (!extraTimerRef.current) {
+    extraTimerRef.current = setInterval(() => {
+      setExtraTime(prev => prev + 1);
+    }, 1000);
+  }
+};
+
+// Stop extra timer
+const stopExtraTimer = () => {
+  if (extraTimerRef.current) {
+    clearInterval(extraTimerRef.current);
+    extraTimerRef.current = null;
+  }
+};
+  
+ useEffect(() => {
+    const checkExtraTimer = setInterval(() => {
+      const now = new Date();
+      if (
+        isPunchIn &&
+        (now.getHours() > EXTRA_START_HOUR ||
+          (now.getHours() === EXTRA_START_HOUR && now.getMinutes() >= EXTRA_START_MINUTE))
+      ) {
+        startExtraTimer();
+      }
+    }, 1000);
+
+    return () => clearInterval(checkExtraTimer);
+  }, [isPunchIn]);
+
+
+// Break handler
+const handleBreak = () => {
+  setIsPunchIn(false);
+  stopTimer();
+  stopExtraTimer(); // pause extra timer
+  setShowBreakPopup(true);
+};
+
+// End work handler
+const handleEndWork = () => {
+  setIsPunchIn(false);
+  stopTimer();
+  stopExtraTimer();   // stop extra timer completely
+  setExtraTime(0);    // reset extra timer
+  setSelectedOption(null);
+  setSelectedOffice(null);
+  setShowBreakPopup(false);
+};
+
+
+
+
+
+
+                 
 
 
 
@@ -184,41 +322,73 @@ useEffect(() => {
 
 
 
+
 <p className="timer">
   {formatTime(seconds)} <br /> Hours
 </p>
 
-              <div className="punch">
-                <button
-                  className="punch-in-button"
-                  onClick={handlePunchIn}
-                  disabled={isPunchIn}
-                >
-                  PUNCH IN
-                </button>
-              </div>
-              <div className="punch-out">
-                <button
-                  className="punch-out-button"
-                  onClick={handlePunchOut}
-                  disabled={!isPunchIn}
-                >
-                  PUNCH OUT
-                </button>
-              </div>
+<div className="punch">
+  <button
+    className="punch-in-button"
+    onClick={handlePunchIn}
+    disabled={isPunchIn}
+  >
+    PUNCH IN
+  </button>
+</div>
+
+<div className="punch-out">
+  <button
+    className="punch-out-button"
+    onClick={handlePunchOut}
+    disabled={!isPunchIn}
+  >
+    PUNCH OUT
+  </button>
+</div>
+
+{/* Work Mode popup (first punch in) */}
+{showWorkModePopup && (
+  <div className="popup-overlay">
+    <div className="popup-box">
+      <h3>Select Work Mode</h3>
+      <button onClick={() => handleOptionSelect("Work From Home")}>
+        Work From Home
+      </button>
+      <button onClick={() => handleOptionSelect("Office")}>Office</button>
+    </div>
+  </div>
+)}
 
 
-{showPopup && (
-      <div className="popup-overlay">
-        <div className="popup-box">
-          <h3>Select Break Type</h3>
-          <button onClick={() => handleBreakOption("lunch")}>Lunch Break</button>
-          <button onClick={() => handleBreakOption("tea")}>Tea Break</button>
-          <button onClick={() => handleBreakOption("small")}>Small Break</button>
-          <button onClick={() => handleBreakOption("end")}>End Work</button>
-        </div>
-      </div>
-    )}
+{/* Office list popup (only if Office chosen) */}
+{showOfficePopup && (
+  <div className="popup-overlay">
+    <div className="popup-box">
+      <h3>Select Office Location</h3>
+      <button onClick={() => handleOfficeSelect("Noida")}>Noida</button>
+      <button onClick={() => handleOfficeSelect("Gurugram")}>Gurugram</button>
+      <button onClick={() => handleOfficeSelect("Bengaluru")}>Bengaluru</button>
+    </div>
+  </div>
+)}
+
+{/* Break popup (after punch out) */}
+{showBreakPopup && (
+  <div className="popup-overlay">
+    <div className="popup-box">
+      <h3>Select Break Type</h3>
+      <button onClick={() => handleBreakOption("lunch")}>Lunch Break</button>
+      <button onClick={() => handleBreakOption("tea")}>Tea Break</button>
+      <button onClick={() => handleBreakOption("small")}>Small Break</button>
+      <button onClick={() => handleBreakOption("end")}>End Work</button>
+    </div>
+  </div>
+)}
+             
+
+
+
 
 
 
@@ -240,23 +410,28 @@ useEffect(() => {
                   </h4>
                 </p>
                 <p>
-                  <h4
-                    style={{
-                      margin: "-44px",
-                      marginLeft: "250px",
-                      fontSize: "20px",
-                      fontWeight: "normal",
-                    }}
-                  >
-                    00:00 Hours
-                  </h4>
-                </p>
+                 
+  <h4
+  style={{
+    margin: "-44px",
+    marginLeft: "250px",
+    fontSize: "20px",
+    fontWeight: "normal",
+  }}
+>
+  {latestPunchInTime
+    ? latestPunchInTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+    : "00:00"}
+</h4>
 
-                <div className="punch-in-timer">
-                  <p>0:00</p>
+</p>
 
-                  <p>hours</p>
-                </div>
+               <div className="punch-in-timer">
+  <p>{formatTime(extraTime)}</p>
+  <p>hours</p>
+</div>
+
+
               </div>
               <div className="main-attendance-break">
                 <p>
@@ -326,7 +501,7 @@ useEffect(() => {
                   marginTop: "10px",
                 }}
               >
-                Late Check In 0
+                Late Check In : 0
               </p>
               <p
                 style={{
@@ -335,7 +510,7 @@ useEffect(() => {
                   marginTop: "-15px",
                 }}
               >
-                Excess Break 0
+                Excess Break : 0
               </p>
               <p
                 style={{
