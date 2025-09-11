@@ -448,6 +448,7 @@ const handleEndWork = () => {
                       marginLeft: "45px",
                       fontSize: "20px",
                       fontWeight: "normal",
+                      marginTop: "-9px",
                     }}
                   >
                     Punch In
@@ -457,10 +458,11 @@ const handleEndWork = () => {
                  
   <h4
   style={{
-    margin: "-44px",
-    marginLeft: "250px",
+    // margin: "-44px",
+    marginLeft: "18rem",
     fontSize: "20px",
     fontWeight: "normal",
+    marginTop: "-2rem",
   }}
 >
   {latestPunchInTime
