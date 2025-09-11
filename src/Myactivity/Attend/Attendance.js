@@ -485,7 +485,7 @@ const handleEndWork = () => {
     style={{
       margin: "-24px",
       marginLeft: "48px",
-      marginTop: "-38px",
+      marginTop: "-42px",
       fontSize: "15px",
       fontWeight: "normal",
     }}
@@ -495,10 +495,10 @@ const handleEndWork = () => {
  <h4
   style={{
     margin: "-24px",
-    marginLeft: "25px",
+    marginLeft: "14px",
     fontSize: "20px",
     fontWeight: "normal",
-    marginTop: "22px",
+    marginTop: "29px",
   }}
 >
   {formatTime(breakTime)} hours
@@ -511,8 +511,8 @@ const handleEndWork = () => {
                   <h4
                     style={{
                       margin: "-24px",
-                      marginLeft: "48px",
-                      marginTop: "-38px",
+                      marginLeft: "41px",
+                      marginTop: "-40px",
                       fontSize: "15px",
                       fontWeight: "normal",
                     }}
@@ -524,10 +524,10 @@ const handleEndWork = () => {
                   <h4
                     style={{
                       margin: "-24px",
-                      marginLeft: "25px",
+                      marginLeft: "20px",
                       fontSize: "20px",
                       fontWeight: "normal",
-                      marginTop: "22px",
+                      marginTop: "26px",
                     }}
                   >
                     00:00 hours
