@@ -553,7 +553,7 @@ const handleEndWork = () => {
                 style={{
                   fontSize: "18px",
                   fontWeight: "normal",
-                  marginTop: "-15px",
+                  marginTop: "-5px",
                 }}
               >
                 Excess Break : 0
@@ -562,8 +562,8 @@ const handleEndWork = () => {
                 style={{
                   fontSize: "18px",
                   fontWeight: "normal",
-                  marginTop: "-72px",
-                  marginLeft: "250px",
+                  marginTop: "-47px",
+                  marginLeft: "230px",
                 }}
               >
                 Forget Check Out : 0
@@ -572,8 +572,8 @@ const handleEndWork = () => {
                 style={{
                   fontSize: "18px",
                   fontWeight: "normal",
-                  marginTop: "-15px",
-                  marginLeft: "250px",
+                  marginTop: "-5px",
+                  marginLeft: "230px",
                 }}
               >
                 Multiple Check In : 0
