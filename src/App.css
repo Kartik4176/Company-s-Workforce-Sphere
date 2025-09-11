@@ -1,8 +1,19 @@
 
 
 
-
+/* 
 a {
   text-decoration: none !important;
   color: inherit;
+} */
+
+
+
+
+/* src/App.css */
+
+.main {
+  min-height: 100vh;
+  overflow-y: auto;
+  padding: 20px;
 }
