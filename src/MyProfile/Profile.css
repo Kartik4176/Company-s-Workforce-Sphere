@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-
 body {
   font-family: 'Poppins', sans-serif;
 }
@@ -15,240 +12,638 @@ html, body {
 .main {
   min-height: 100vh;
   overflow-y: auto;
-  padding: 20px;
-} 
+  padding: 1.25rem;   /* 20px */
+}
+
+/* ============================= */
+/* 📱 Mobile devices (up to 37.5rem → 600px) */
+/* ============================= */
+@media (max-width: 37.5rem) {
+  body {
+    font-size: 0.875rem;   /* 14px */
+  }
+
+  .main {
+    padding: 0.625rem;     /* 10px */
+  }
+}
+
+/* ============================= */
+/* 📱➡️💻 Tablets (37.6rem - 64rem → 601px - 1024px) */
+/* ============================= */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  body {
+    font-size: 1rem;       /* 16px */
+  }
+
+  .main {
+    padding: 0.9375rem;    /* 15px */
+  }
+}
+
+/* ============================= */
+/* 💻 Desktops (64.06rem and above → 1025px+) */
+/* ============================= */
+@media (min-width: 64.06rem) {
+  body {
+    font-size: 1.125rem;   /* 18px */
+  }
+
+  .main {
+    padding: 1.25rem 2.5rem; /* 20px 40px */
+  }
+}
 
  
-
-
-
-
-
-
-
-
-
 
 
 
 .mainbox {
   display: flex;
   flex-wrap: wrap;       /* allow wrapping to next row */
-  gap: 20px;             /* space between boxes */
-  padding: 10px;         /* space inside parent */
-  justify-content: flex-start; /* or center, or space-between */
+  gap: 1.25rem;          /* 20px */
+  padding: 0.625rem;     /* 10px */
+  justify-content: flex-start; 
   align-items: flex-start;
   overflow-y: auto;
-  height: auto;
-   overflow-x: hidden;
-   width:100vw;
-   height:100vh;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100vh;
 }
-
-
-
-
 
 .main-content {
-
-
-  position:absolute;
-  top:24px;
-  left:320px;
-  /* right: 52px; */
-  
+  position: absolute;
+  top: 1.5rem;          /* 24px */
+  left: 20rem;          /* 320px */
+  /* right: 3.25rem; → 52px, if needed later */
 }
+
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .mainbox {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .main-content {
+    position: static;        
+    margin-top: 1.25rem;   /* 20px */
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* 📱➡️💻 Tablets (37.6rem - 64rem → 601px - 1024px) */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  .mainbox {
+    justify-content: center;
+  }
+
+  .main-content {
+    left: 12.5rem;          /* 200px */
+    width: calc(100% - 12.5rem);
+  }
+}
+
+/* 💻 Desktops (64.1rem and above → 1025px+) */
+@media (min-width: 64.1rem) {
+  .mainbox {
+    justify-content: flex-start; 
+  }
+
+  .main-content {
+    left: 20rem;            /* 320px */
+    width: calc(100% - 20rem);
+  }
+}
+
+
+
+
+
 
 
 
 
 
 .ticket-container {
-  /* position: fixed; */
-  /* flex: 1 1 100%; */
-  position :absolute;
-  top: 160px;
-  left: 0px;
-  /* width: calc(100% - 275px); */
-  width:98%;
-  padding: 10px;
+  position: absolute;
+  top: 10rem;         /* instead of 160px */
+  left: 0;
+  width: 98%;
+  padding: 1rem;
   display: flex;
-  justify-content: space-between;  /* pushes children to left and right ends */
+  justify-content: space-between;
   align-items: center;
-color:white;
-  /* border: 1px solid rgb(35, 47, 188); */
+  color: white;
   background-color: #5416cf;
   box-sizing: border-box;
-  /* box-shadow: 0 0 12px rgba(66, 142, 76, 0.4); */
- 
-  /* color:white; */
-  /* border-radius: 5px; */
+}
+
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .ticket-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    top: 7.5rem;      /* instead of 120px */
+    padding: 1.5rem;
+    width: 100%;
+  }
+}
+
+/* 📱➡️💻 Tablets (601px - 1024px → 37.6rem - 64rem) */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  .ticket-container {
+    flex-direction: row;
+    justify-content: space-around;
+    top: 9rem;        /* instead of 140px */
+    width: 96%;
+  }
+}
+
+/* 💻 Desktops (1025px and above → 64.1rem+) */
+@media (min-width: 64.1rem) {
+  .ticket-container {
+    flex-direction: row;
+    justify-content: space-between;
+    top: 10rem;       /* original */
+    width: 98%;
+  }
 }
 
 
 
-/* .dynamic-box {
+
+
+/* Main Content */
+.box-container {
   position: absolute;
-  top: 243px;
-  width: 98%;
-  height: auto;;
-  background-color: #f5f5f5;
-  
+  top: 15rem;
+  left: 17rem;          
+  /* width: calc(100% - 17rem); */
+  width: 100%;
+  padding: 0.625rem;
   display: flex;
-  flex-wrap: wrap;         
-  gap: 20px;              
-  padding: 10px;
-  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fcfbfe;
+  box-shadow: 0 0 0.75rem rgba(66, 142, 76, 0.4);
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
 
-  justify-content: flex-start; 
-  align-items: flex-start;     
 
-  border-left: 1px solid #7e7a8f;
-  border-right: 1px solid #7e7a8f;
 
-  font-weight: bold;
-} */
+
+
+
+
+
 
 
 
 .dynamic-box {
-  position: relative;  /* ✅ instead of absolute */
-  top: 243px;
-  width: 98%;
-  background-color: #f5f5f5;
-  
+  position: relative;     
+  margin-top: -5.5rem;           
+  width: 100%;
+  height:auto;
+  background-color:#f5f5f5 ;
+
   display: flex;
-  flex-direction: column; /* ✅ stack content vertically */
-  gap: 20px;              
-  padding: 10px;
+  flex-direction: column; 
+  gap: 1.25rem;          
+  padding: 0.625rem;      
   box-sizing: border-box;
 
-  border-left: 1px solid #7e7a8f;
-  border-right: 1px solid #7e7a8f;
+  border-left: 0.0625rem solid #7e7a8f;  
+  border-right: 0.0625rem solid #7e7a8f;
+  border-bottom: .0625rem solid #7e7a8f;
+  border-radius: 0rem;
 
   font-weight: bold;
+} 
+
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .dynamic-box {
+    top: 8rem;             /* adjust so it doesn’t overlap */
+    width: 100%;           /* take full width */
+    gap: 1rem;             
+    padding: 1rem;
+  }
 }
 
+/* 📱➡️💻 Tablets (37.6rem - 64rem → 601px - 1024px) */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  .dynamic-box {
+    top: 12rem;            /* slightly reduced */
+    width: 96%;
+    gap: 1.125rem;         /* ~18px */
+    padding: 0.875rem;     /* ~14px */
+  }
+}
+
+/* 💻 Desktops (64.06rem and above → 1025px+) */
+@media (min-width: 64.06rem) {
+  .dynamic-box {
+    top: 15.2rem;          /* original spacing */
+    width: 98%;
+    gap: 1.25rem;
+    padding: 0.625rem;
+  }
+}
+
+
+
+
+.emp {
+  margin-top: -34rem;
+  position: absolute;
+  font-size: 2rem !important;
+  margin-left: -39rem;
+}
+
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .emp {
+    margin-top: -20rem;
+    margin-left: -10rem;
+    font-size: 1.2rem;
+    position: relative; /* safer on small screens */
+  }
+}
+
+/* 📱➡️💻 Tablets (37.6rem - 64rem → 601px - 1024px) */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  .emp {
+    margin-top: -28rem;
+    margin-left: -20rem;
+    font-size: 1.6rem;
+  }
+}
+
+/* 💻 Desktops (64.06rem and above → 1025px+) */
+@media (min-width: 64.06rem) {
+  .emp {
+    margin-top: -34rem;
+    margin-left: -39rem;
+    font-size: 2rem;
+  }
+}
+
+/* 
 .profile-container {
   display: flex;
   flex-direction: column;
-  gap: 20px; 
-  width: 30%;
-  height: auto;
+  gap: 1.25rem;
+
+  width: 23rem !important;   
+  max-width: 95%;            
+  height: 27rem;
   box-sizing: border-box;
 
   background-color: #EDEFEF;
-  border-radius: 12px;
+  border-radius: 0.75rem;
 
-  /* center it */
+  
   position: absolute;
-  top: 48%;
-  left: 16%;
-  transform: translate(-50%, -50%);
+  
+   margin-top: -24% !important;           
+  margin-left: -14%; 
+} */
+
+/* 
+.profile-container {
+  position: absolute;
+  top: 1%;     
+  left: 50%;    
+
+  width: 23rem !important;
+  max-width: 95%;
+  height: 27rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-sizing: border-box;
+
+  background-color: #EDEFEF;
+  border-radius: 0.75rem;
+} */
+
+
+/* ---------- debug / base fixes ---------- */
+/* keep .dynamic-box as parent with position:relative (you already have it) */
+.dynamic-box {
+  position: relative; /* keep */
+}
+
+/* profile-container — cleaned, no margins, no transform, uses rem & % only */
+.profile-container {
+  position: absolute !important;
+  top: 4rem !important;    /* move down relative to parent — rem works reliably */
+  left: 1rem !important;   /* move right relative to parent */
+  width: 20rem !important; /* fixed width in rem */
+  max-width: 95% !important;
+  height: 27rem !important;
+  margin: 0 !important;
+  transform: none !important;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-sizing: border-box;
+
+  background-color: #EDEFEF;
+  border-radius: 0.75rem;
+
+  /* debug outline so you can see it — remove after testing */
+  
+  z-index: 50; /* ensure it sits above siblings for testing */
 }
 
 
 
-.profile-pic  img{
+
+
+.profile-pic img {
+  position: absolute;
   display: flex;
   justify-content: center;
-  margin-top: 5px;
-margin-left: 107px;
-  width: 250px;   /* decrease size */
-  height: auto;   /* keeps aspect ratio */
+  margin-top: 0.3rem;  /* 5px → rem */
+  margin-left: 30% !important;   /* 107px → % relative to container */
+  width: 39% !important;     /* 250px → rem */
+  height: 10rem;       /* keeps aspect ratio */
   border-radius: 110%; 
   background-color: #ffffff;
 }
 
+/* 📱 Mobile (up to 600px) */
+@media (max-width: 37.5rem) {
+  .profile-container {
+    width: 80%;
+    left: 50%;
+    top: 50%;
+  }
+
+
+  .profile-pic img {
+    margin-left: 25%;
+    width: 10rem; /* smaller image */
+  }
+}
+
+/* 📱➡️💻 Tablets (601px - 1024px) */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  .profile-container {
+    width: 50%;
+    left: 50%;
+    top: 50%;
+  }
+
+  .profile-pic img {
+    margin-left: 30%;
+    width: 12rem;
+  }
+}
+
+/* 💻 Desktops (1025px and above) */
+@media (min-width: 64.06rem) {
+  .profile-container {
+    width: 30%;
+    left: 16%;
+    top: 48%;
+  }
+
+  .profile-pic img {
+    margin-left: 35%;
+    width: 15.6rem;
+  }
+}
+
+
+
+
+
+/* Base styles */
+.emp-name {
+  position: absolute  ;
+  font-size: 1.5rem !important;   /* 30px → rem */
+  margin-left: 9%;
+  margin-top: 49%;
+  font-weight: bold;
+}
+
+
+.emp-role {
+  font-size: 1.375rem;   /* 22px → rem */
+  margin-left: 20%;
+  margin-top: 55%;
+  font-weight: normal;
+  color: #808080;
+}
+
+.emp-label {
+  font-size: 1rem !important;
+  margin-left: 4%;
+  margin-top: 3%;
+  font-weight: normal;
+  color: #808080;
+}
+
+.emp-value {
+  font-size: 1rem !important;
+  margin-left: 65%;
+  margin-top: -15%;
+  font-weight: normal;
+  color: #808080;
+}
+
+/* ============================= */
+/* 📱 Mobile devices (up to 600px) */
+/* ============================= */
+@media (max-width: 37.5rem) {
+  .emp-name {
+    font-size: 1.5rem;
+    margin-left: 5%;
+    margin-top: 2%;
+    text-align: center;
+  }
+
+  .emp-role {
+    font-size: 1.2rem;
+    margin-left: 5%;
+    margin-top: 1%;
+    text-align: center;
+  }
+
+  .emp-label,
+  .emp-value {
+    font-size: 1.1rem;
+    margin-left: 5%;
+    margin-top: 1%;
+    display: block;
+    text-align: left;
+  }
+
+  .emp-value {
+    margin-left: 5%;
+    margin-top: 0.5%;
+  }
+}
+
+/* ============================= */
+/* 📱➡️💻 Tablets (601px - 1024px) */
+/* ============================= */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  .emp-name {
+    font-size: 1.75rem;
+    margin-left: 10%;
+  }
+
+  .emp-role {
+    font-size: 1.25rem;
+    margin-left: 20%;
+  }
+
+  .emp-label {
+    font-size: 1.2rem;
+    margin-left: 6%;
+  }
+
+  .emp-value {
+    font-size: 1.2rem;
+    margin-left: 60%;
+  }
+}
+
+/* 💻 Desktops (1025px and above) */
+@media (min-width: 64.06rem) {
+  .emp-name {
+    font-size: 1.875rem;
+  }
+
+  .emp-role,
+  .emp-label,
+  .emp-value {
+    font-size: 1.375rem;
+  }
+}
+
+
 
 .employee-details {
-  flex: 1;            /* take remaining space */
-         /* important — allows shrinking inside flex */
+  flex: 1;
   display: grid;
-  grid-template-columns: 180px 1fr; 
-  gap: 8px 150px;
+  /* 180px = 11.25rem, gap 8px=0.5rem, 150px=9.375rem */
+  grid-template-columns: 11.25rem 1fr;
+  gap: 0.5rem 9.375rem;
   align-items: center;
-  
-  /* padding: 16px; */
-  /* border-radius: 10px; */
-  /* box-shadow: 0 2px 6px rgba(0,0,0,0.06); */
-  margin-top: -53rem;
-  margin-left: 30rem;
-  font-size: 25px;
+
+  margin-top: 2.6rem !important;  /* you can change to % if positioning relative to parent */
+  margin-left: 24rem !important;
+  font-size: 1.1rem !important; /* 25px → rem */
 }
 
 .employee-details .label {
-  /* text-align: column; */
   font-weight: 600;
   color: #666;
-  padding-right: 8px;
+  padding-right: 0.5rem; /* 8px → rem */
 }
 
 .employee-details .value {
   text-align: left;
   color: #333;
   word-break: break-word;
+  margin-left: -6rem;
 }
+
+/* 📱 Mobile (up to 600px) */
+@media (max-width: 37.5rem) {
+  .employee-details {
+    grid-template-columns: 1fr; /* stack label and value */
+    gap: 1rem;                 /* more breathing room */
+    margin-top: -20rem;        /* adjust position for mobile */
+    margin-left: 5%;           /* % so it adapts */
+    font-size: 1.25rem;
+  }
+}
+
+/* 📱➡️💻 Tablets (601px - 1024px) */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  .employee-details {
+    grid-template-columns: 9rem 1fr; /* a bit narrower columns */
+    gap: 0.5rem 4rem;
+    margin-top: -35rem;
+    margin-left: 10%;
+    font-size: 1.4rem;
+  }
+}
+
+/* 💻 Desktops (1025px and above) */
+@media (min-width: 64.06rem) {
+  .employee-details {
+    grid-template-columns: 11.25rem 1fr;
+    gap: 0.5rem 9.375rem;
+    margin-top: -53rem;
+    margin-left: 30rem;
+    font-size: 1.5625rem;
+  }
+}
+
+
+
+
 
 
 .form {
-  background:#f5f5f5 ;
-  padding: 20px;
-  /* border-radius: 12px; */
-  /* box-shadow: 0 2px 6px rgba(0,0,0,0.1); */
-  margin-top: 1125px;  /* ✅ space from details */
-  width: 101.3%;       /* full width of parent */
+  background: #f5f5f5;
+  padding: 2rem;
+  margin-top: 148.5vh; /* vertical offset */
+  width: 102.5%;
   box-sizing: border-box;
   height: auto;
-  margin-left: -1606px;
-  border-left: 1px solid #7e7a8f;
-  border-right: 1px solid #7e7a8f;
-
-
+  margin-left: -59rem;
+  border-left: 0.0625rem solid #7e7a8f;  /* 1px */
+  border-right: 0.0625rem solid #7e7a8f; /* 1px */
+  font-size: 2rem !important;
 }
 
 .form-title {
-  
-  font-size: 30px;
+  font-size: 1.4rem; /* 30px */
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   color: #333;
   text-align: center;
 }
 
 .button-grid {
-
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 buttons per row */
-  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .1rem;
 }
 
 .button-grid button {
-  
-  padding: 10px;
+  padding: 0.625rem;
   border: none;
-  border-radius: 8px;
-  font-size: 25px;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
   cursor: pointer;
   transition: 0.2s ease;
   color: #666;
 }
 
-/* Different colors for different actions */
-/* .edit-button { background: #D5D5D5; }
-.change-button { background:#D5D5D5;  }
-.deactivate-button { background: #DADADA; }
-.delete-button { background: #D5D5D5; }
-.download-button { background: #D5D5D5; }*/
-.deleteinfo-button { background: #D5D5D5; } 
+.deleteinfo-button {
+  background: #D5D5D5;
+}
 
 .button-grid button:hover {
   opacity: 0.9;
-  transform: translateY(-2px);
+  transform: translateY(-0.125rem); /* 2px in rem */
   background-color: #bbb;
 }
-
-
 
 /* Modal background */
 .modal {
@@ -267,27 +662,55 @@ margin-left: 107px;
 /* Modal box */
 .modal-content {
   background: #fff;
-  padding: 20px;
-  margin: 80px;
-  border-radius: 12px;
-  width: 600px;   /* increase width */
-  min-height: 500px; /* increase height */
-  max-height: 90vh;  /* prevent overflow */
-  overflow-y: auto;  /* scroll if content exceeds */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding: 1.25rem;
+  margin: 5vh;
+  border-radius: 0.75rem;
+  width: 37.5rem; /* 600px */
+  min-height: 31.25rem; /* 500px */
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.2);
 }
 
 .modal-content input {
   width: 100%;
-  margin: 8px 0;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.375rem;
 }
 
 .modal-buttons {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 0.625rem;
+  margin-top: 0.625rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 64rem) { /* 1024px */
+  .form {
+    margin-top: 50vh;
+    padding: 1.5rem;
+  }
+  .button-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 48rem) { /* 768px */
+  .form {
+    margin-top: 40vh;
+    padding: 1rem;
+  }
+  .button-grid {
+    grid-template-columns: 1fr;
+  }
+  .modal-content {
+    width: 90%;
+    min-height: auto;
+  }
+  .form-title {
+    font-size: 1.5rem;
+  }
 }

@@ -203,110 +203,35 @@ const handleEmerSubmit = (e) => {
           <NavBaar />
 
           <div className="ticket-container">
-            <h5>My Profile</h5>
+            <h5>My Employee</h5>
           </div>
 
           {/* dynamic Box Container */}
           <div className="dynamic-box">
-            <p
-              style={{
-                width: "100%",
-                textAlign: "left",
-                height: "95%",
-                fontSize: "35px",
-                fontWeight: "bold",
-                marginLeft: "20px",
-              }}
-            >
-              Employee Detail
-            </p>
+           
+ <div className="emp">Employee Detail</div>
 
-            <div className="profile-container">
-              <div className="profile-pic">
+<div className="profile-container">
+<div className="profile-pic img">
                 <img src="/image/Profile/phot.png" alt="profile" />
               </div>
 
-              <p style={{ fontSize: "30px", marginLeft: "16%", marginTop: "1%" }}>
-                Gaurav Vishwakarma
-              </p>
-              <p
-                style={{
-                  fontSize: "22px",
-                  marginLeft: "32%",
-                  marginTop: "-4%",
-                  fontWeight: "normal",
-                  color: "#808080",
-                }}
-              >
-                Software Trainee
-              </p>
-              <p
-                style={{
-                  fontSize: "22px",
-                  marginLeft: "4%",
-                  marginTop: "3%",
-                  fontWeight: "normal",
-                  color: "#808080",
-                }}
-              >
-                Employee ID :
-              </p>
-              <p
-                style={{
-                  fontSize: "22px",
-                  marginLeft: "75%",
-                  marginTop: "-15%",
-                  fontWeight: "normal",
-                  color: "#808080",
-                }}
-              >
-                WFS52178
-              </p>
-              <p
-                style={{
-                  fontSize: "22px",
-                  marginLeft: "4%",
-                  marginTop: "-2%",
-                  fontWeight: "normal",
-                  color: "#808080",
-                }}
-              >
-                Department :
-              </p>
-              <p
-                style={{
-                  fontSize: "22px",
-                  marginLeft: "75%",
-                  marginTop: "-15%",
-                  fontWeight: "normal",
-                  color: "#808080",
-                }}
-              >
-                IT
-              </p>
-              <p
-                style={{
-                  fontSize: "22px",
-                  marginLeft: "4%",
-                  marginTop: "-2%",
-                  fontWeight: "normal",
-                  color: "#808080",
-                }}
-              >
-                Date of Joining :
-              </p>
-              <p
-                style={{
-                  fontSize: "22px",
-                  marginLeft: "75%",
-                  marginTop: "-15%",
-                  fontWeight: "normal",
-                  color: "#808080",
-                }}
-              >
-                21-08-2023
-              </p>
-            </div>
+
+<p className="emp-name">Gaurav Vishwakarma</p>
+<p className="emp-role">Software Trainee</p>
+<p className="emp-label">Employee ID :</p>
+<p className="emp-value">WFS52178</p>
+<p className="emp-label">Department :</p>
+<p className="emp-value">IT</p>
+<p className="emp-label">Date of Joining :</p>
+<p className="emp-value">21-08-2023</p>
+
+</div>
+
+
+
+
+
 
             <div className="employee-details">
               <div className="label">Email:</div>
@@ -316,7 +241,7 @@ const handleEmerSubmit = (e) => {
               <div className="value">+91 9570578335</div>
 
               <div className="label">Address:</div>
-              <div className="value">Sec-62, Noida, Uttar Pradesh (In)</div>
+              <div className="value">Sec-62, Noida, Uttar Pradesh (Indai)</div>
 
               <div className="label">Date of Birth:</div>
               <div className="value">15-05-1995</div>
@@ -338,6 +263,27 @@ const handleEmerSubmit = (e) => {
 
               {/*  */}
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <div className="form">
               <p className="form-title">Fill/Submit Form</p>
@@ -370,7 +316,8 @@ const handleEmerSubmit = (e) => {
 </button>
 
               </div>
-            </div>
+            </div> 
+            
 
 
                    {/*// Profile Edit Modal */}
