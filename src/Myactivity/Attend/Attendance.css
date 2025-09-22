@@ -1,3 +1,7 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -8,28 +12,119 @@ html, body {
 .main {
   min-height: 100vh;
   overflow-y: auto;
-  padding: 20px;
+  padding: 1.25rem;   /* 20px */
 }
 
+/* ============================= */
+/* 📱 Mobile devices (up to 37.5rem → 600px) */
+/* ============================= */
+@media (max-width: 37.5rem) {
+  body {
+    font-size: 0.875rem;   /* 14px */
+  }
+
+  .main {
+    padding: 0.625rem;     /* 10px */
+  }
+}
+
+/* ============================= */
+/* 📱➡️💻 Tablets (37.6rem - 64rem → 601px - 1024px) */
+/* ============================= */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  body {
+    font-size: 1rem;       /* 16px */
+  }
+
+  .main {
+    padding: 0.9375rem;    /* 15px */
+  }
+}
+
+/* ============================= */
+/* 💻 Desktops (64.06rem and above → 1025px+) */
+/* ============================= */
+@media (min-width: 64.06rem) {
+  body {
+    font-size: 1.125rem;   /* 18px */
+  }
+
+  .main {
+    padding: 1.25rem 2.5rem; /* 20px 40px */
+  }
+}
+
+ 
 
 
 
 .mainbox {
   display: flex;
   flex-wrap: wrap;       /* allow wrapping to next row */
-  gap: 20px;             /* space between boxes */
-  padding: 10px;         /* space inside parent */
-  justify-content: flex-start; /* or center, or space-between */
+  gap: 1.25rem;          /* 20px */
+  padding: 0.625rem;     /* 10px */
+  justify-content: flex-start; 
   align-items: flex-start;
   overflow-y: auto;
-  height: auto;
-   overflow-x: hidden;
-   width:100vw;
-   height:100vh;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+.main-content {
+  position: absolute;
+  top: 1.5rem;          /* 24px */
+  left: 20rem;          /* 320px */
+  /* right: 3.25rem; → 52px, if needed later */
+}
+
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .mainbox {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .main-content {
+    position: static;        
+    margin-top: 1.25rem;   /* 20px */
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* 📱➡️💻 Tablets (37.6rem - 64rem → 601px - 1024px) */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  .mainbox {
+    justify-content: center;
+  }
+
+  .main-content {
+    left: 12.5rem;          /* 200px */
+    width: calc(100% - 12.5rem);
+  }
+}
+
+/* 💻 Desktops (64.1rem and above → 1025px+) */
+@media (min-width: 64.1rem) {
+  .mainbox {
+    justify-content: flex-start; 
+  }
+
+  .main-content {
+    left: 20rem;            /* 320px */
+    width: calc(100% - 20rem);
+  }
 }
 
 
 
+
+
+
+
+/* 
 
 .SlideBar td {
   width: 250px;
@@ -59,7 +154,7 @@ html, body {
 
 .table-border {
   border-right: 1px solid black;
-  border-collapse: collapse; /* optional, removes double borders */
+  border-collapse: collapse;
 }
 
 
@@ -70,30 +165,29 @@ html, body {
   position:absolute;
   top:24px;
   left:320px;
-  /* right: 52px; */
+
   
 }
 
 
 
 
-                /* Navbar  */
+             
 
 
 .navbar td {
   width: 280px;
 
-  /* border-radius: 10px; */
+
   padding: 10px;
   margin: 10px;
   height: 2vh;
 
-  /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); */
+  
 }
 
 .navbar {
-  /* position: fixed; */
-  /* position:absolute; */
+  
   top: 5px;
   left: 0px;
   display: flex;
@@ -110,13 +204,13 @@ html, body {
 
 
 
-
+ */
 
 
                                              /* Dashboard */
 
-    .dashboards  {
-  /* position: fixed; */
+    /* .dashboards  {
+  
   position:absolute;
   top: 80px;
   left: 0px;
@@ -124,8 +218,8 @@ html, body {
   padding-top: 5px;
   background-color:  #EBF5F0;
   border-radius: 5px;
-  width: 98%;
-}                                         
+  width: 98%; */
+                                      
 
 
                                          
@@ -135,27 +229,54 @@ html, body {
 
 
 
+
 .ticket-container {
-  /* position: fixed; */
-  /* flex: 1 1 100%; */
-  position :absolute;
-  top: 160px;
-  left: 0px;
-  /* width: calc(100% - 275px); */
-  width:98%;
-  padding: 10px;
+  position: absolute;
+  top: 10rem;         /* instead of 160px */
+  left: 0;
+  width: 98%;
+  padding: 1rem;
   display: flex;
-  justify-content: space-between;  /* pushes children to left and right ends */
+  justify-content: space-between;
   align-items: center;
-color:white;
-  /* border: 1px solid rgb(35, 47, 188); */
+  color: white;
   background-color: #5416cf;
   box-sizing: border-box;
-  /* box-shadow: 0 0 12px rgba(66, 142, 76, 0.4); */
- 
-  /* color:white; */
-  /* border-radius: 5px; */
 }
+
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .ticket-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    top: 7.5rem;      /* instead of 120px */
+    padding: 1.5rem;
+    width: 100%;
+  }
+}
+
+/* 📱➡️💻 Tablets (601px - 1024px → 37.6rem - 64rem) */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  .ticket-container {
+    flex-direction: row;
+    justify-content: space-around;
+    top: 9rem;        /* instead of 140px */
+    width: 96%;
+  }
+}
+
+/* 💻 Desktops (1025px and above → 64.1rem+) */
+@media (min-width: 64.1rem) {
+  .ticket-container {
+    flex-direction: row;
+    justify-content: space-between;
+    top: 10rem;       /* original */
+    width: 98%;
+  }
+}
+
+
 
 
 
@@ -167,59 +288,114 @@ color:white;
 
                                               /* Main Content */
 
-
-  .box-container {
-position: fixed;
-position:absolute;
-  top: 240px;
-  left: 275px;
-  width: calc(100% - 275px);
-  padding: 10px;
-  display: flex;
-   justify-content: space-between;  
-   align-items: center;
-
-  
-  background-color: #fcfbfe;
-  box-shadow: 0 0 12px rgba(66, 142, 76, 0.4);
-gap:20px;
-   flex-wrap: wrap;
-  padding: 10px; 
-} 
-
-
-.dynamic-box {
+/* Your existing CSS */
+.box-container {
   position: absolute;
-  top: 243px;
-  width: 98%;
-  height: 110%;
-  background-color: #f5f5f5;
-  
+  top: 15rem;
+  left: 17rem;          
+  width: 100%;
+  padding: 0.625rem;
   display: flex;
-  flex-wrap: wrap;         
-  gap: 20px;              
-  padding: 10px;
-  box-sizing: border-box;
-
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  background-color: #fcfbfe;
+  box-shadow: 0 0 0.75rem rgba(66, 142, 76, 0.4);
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
 
- 
-  /* border-top: 1px solid #1b9c73; */
-border-left: 1px solid #7e7a8f;
-border-right: 1px solid #7e7a8f;
-/* border-bottom: 10px solid #7e7a8f; */
-  /* border-radius: 10px; */
-  font-weight: bold;
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .box-container {
+    top: 8rem;         /* reduce vertical offset */
+    left: 0;           /* no horizontal offset */
+    width: 100%;       /* full width */
+    padding: 1rem;
+    flex-direction: column; /* stack items vertically */
+    gap: 2rem;
+  }
+}
+
+/* 📱 Tablet (max-width: 64rem → 1024px) */
+@media (max-width: 64rem) {
+  .box-container {
+    left: 2rem;         /* smaller horizontal offset */
+    top: 12rem;         /* reduce vertical offset */
+    width: 96%;         /* leave small margin */
+    gap: 1.5rem;
+  }
 }
 
 
 
- 
+.dynamic-box {
+  position: relative;     
+  width: 100%;
+  background-color: #f5f5f5;
 
+  display: flex;
+  flex-direction: column; 
+  gap: 1.25rem;          
+  padding: 0.625rem;      
+  box-sizing: border-box;
+
+  border-left: 0.0625rem solid #7e7a8f;  
+  border-right: 0.0625rem solid #7e7a8f;
+  border-bottom: .4rem solid #7e7a8f;
+  font-weight: bold;
+
+  height: auto;       /* grow with content */
+  min-height: 48rem;  /* optional minimum height */
+  margin-top: -40rem;
+}
+
+
+
+
+
+
+
+
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .dynamic-box {
+    top: 8rem;             /* adjust so it doesn’t overlap */
+    width: 100%;           /* take full width */
+    gap: 1rem;             
+    padding: 1rem;
+  }
+}
+
+/* 📱➡️💻 Tablets (37.6rem - 64rem → 601px - 1024px) */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  .dynamic-box {
+    top: 12rem;            /* slightly reduced */
+    width: 96%;
+    gap: 1.125rem;         /* ~18px */
+    padding: 0.875rem;     /* ~14px */
+  }
+}
+
+/* 💻 Desktops (64.06rem and above → 1025px+) */
+@media (min-width: 64.06rem) {
+  .dynamic-box {
+    top: 15.2rem;          /* original spacing */
+    width: 98%;
+    gap: 1.25rem;
+    padding: 0.625rem;
+  }
+}
+
+
+
+
+
+
+
+/* Your existing CSS */
 .boxes {
-  width: calc(25% - 30px); /* 4 boxes per row */
-  height: 230px;
+  width: calc(25% - 1.875rem); /* 30px → 1.875rem */
+  height: 14.375rem;           /* 230px → 14.375rem */
 
   background-color: #ffffff;
   color: #000;
@@ -229,157 +405,321 @@ border-right: 1px solid #7e7a8f;
   align-items: center;
   justify-content: center;
 
-  padding: 10px;
+  padding: 0.625rem;           /* 10px → 0.625rem */
   
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 0.625rem;     /* 10px → 0.625rem */
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.15);
   font-weight: 500;
   text-align: center;
   transition: transform 0.2s;
- box-shadow: 0 4px 8px #3ae7b6;
-
+  box-shadow: 0 0.25rem 0.5rem #3ae7b6;
 }
 
 .boxes:hover {
-  transform: translateY(-5px);
+  transform: translateY(-0.3125rem); /* -5px → -0.3125rem */
   cursor: pointer;
 }
 
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .boxes {
+    width: 100%;              /* 1 per row on mobile */
+    height: auto;             /* let content decide height */
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+}
 
+/* 📱 Tablet (max-width: 64rem → 1024px) */
+@media (max-width: 64rem) {
+  .boxes {
+    width: calc(50% - 1rem);  /* 2 per row on tablets */
+    height: auto;
+    margin-bottom: 1rem;
+  }
+}
+
+
+ 
+
+
+
+
+
+
+/* Your existing CSS */
 .attendance-boxes {
-  position:absolute;
+  position: absolute;
   width : 97%;
-  height: 45%;
-top : 25px;
+  height: 42%;
+  top : 1.2625rem;          /* 25px → 1.5625rem */
   background-color: #ffffff;
   color: #000;
-  margin-left: -5px;
+  margin-left: 0.2rem;  /* -5px → -0.3125rem */
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
- 
-  padding-top: 10px;
-  padding-left:18px;
+  padding-top: 0.625rem;    /* 10px → 0.625rem */
+  padding-left:1.125rem;    /* 18px → 1.125rem */
   
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 0.625rem;  /* 10px → 0.625rem */
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.15);
   font-weight: 500;
   text-align: center;
 }
 
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .attendance-boxes {
+    position: relative;   /* avoid overflow */
+    width: 100%;
+    height: auto;         /* let it grow naturally */
+    top: 1rem;
+    margin-left: 0;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    border-radius: 0.5rem;
+  }
+}
+
+/* 📱 Tablet (max-width: 64rem → 1024px) */
+@media (max-width: 64rem) {
+  .attendance-boxes {
+    width: 98%;
+    height: auto;
+    top: 1.25rem;
+    margin-left: -0.2rem;
+  }
+}
 
 
-  
+
+
+
+.attendance-heading {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.current-date,
+.current-time {
+  margin: 0;
+  font-size: .6rem;;
+}
+
+.work-timings {
+  padding-left: 55%;
+  margin-top: -3.9375rem; /* -95px → -5.9375rem */
+  font-size: .8rem;    /* 22px → 1.375rem */
+}
+
+.start-time {
+  padding-left: 40%;
+  margin-top: 0.625rem;   /* 10px → 0.625rem */
+  font-size: 0.6rem;   /* 15px → 0.9375rem */
+}
+
+.end-time {
+  padding-left: 81%;
+  margin-top: -2.125rem;  /* -50px → -3.125rem */
+  font-size: 0.6rem;
+}
+
+/* 📱 Mobile (max-width: 37.5rem) */
+@media (max-width: 37.5rem) {
+  .work-timings {
+    padding-left: 0;
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    text-align: center;
+  }
+  .start-time,
+  .end-time {
+    padding-left: 0;
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+  }
+}
+
+/* 📱 Tablet (max-width: 64rem) */
+@media (max-width: 64rem) {
+  .work-timings {
+    padding-left: 20%;
+    margin-top: -2rem;
+    font-size: 1.25rem;
+  }
+  .start-time {
+    padding-left: 15%;
+  }
+  .end-time {
+    padding-left: 70%;
+  }
+}
+
+
+
+
 
 
 
 
 .Atten-meter {
   width: 100%;
-  height: 20px;
+  height: 1.25rem;          /* 20px → 1.25rem */
   background-color: #ccc;
-  border-radius: 10px;
+  border-radius: 0.625rem;  /* 10px → 0.625rem */
   overflow: hidden;
-  margin-bottom: 20px;
-  margin-top: 25px;
+  margin-bottom: 1.25rem;   /* 20px → 1.25rem */
+  margin-top: 1.5625rem;    /* 25px → 1.5625rem */
+  margin-left: -.5rem;
 }
 
 .meter {
   height: 100%;
   background-color: #868686;
-  border-radius: 10px;
+  border-radius: 0.625rem;  /* 10px → 0.625rem */
   transition: width 0.5s ease;
 }
 
+/* 📱 Mobile (max-width: 37.5rem / 600px) */
+@media (max-width: 37.5rem) {
+  .Atten-meter {
+    height: 1rem;            /* slightly shorter */
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  .meter {
+    border-radius: 0.5rem;
+  }
+}
+
+/* 📱 Tablet (max-width: 64rem / 1024px) */
+@media (max-width: 64rem) {
+  .Atten-meter {
+    height: 1.125rem;        /* 18px */
+    margin-bottom: 1.125rem;
+    margin-top: 1.25rem;
+  }
+}
+
+  
+
+
+
+/* Original styles converted to rem */
 .btn-section {
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
+  margin-top: 1.25rem; /* 20px → 1.25rem */
+}
+
+/* 📱 Mobile (max-width: 37.5rem / 600px) */
+@media (max-width: 37.5rem) {
+  .btn-section {
+    flex-direction: column;   /* stack buttons vertically */
+    align-items: center;      /* center them horizontally */
+    gap: 1rem;                /* space between buttons */
+    margin-top: 1rem;         /* reduce margin */
+  }
+}
+
+/* 📱 Tablet (max-width: 64rem / 1024px) */
+@media (max-width: 64rem) {
+  .btn-section {
+    justify-content: space-evenly; /* tighter spacing */
+    margin-top: 1.125rem;          /* 18px */
+  }
 }
 
 
+
+
+
+
+
+/* Original styles converted to rem */
 .timer {
-  padding-left: 43%;
-  margin-top: 0px;
-  font-size: 28px;
+  padding-left: 46%;         /* keep % for horizontal positioning */
+  margin-top: 0.4rem;             /* 0px → 0 */
+  font-size: 1rem;        /* 28px → 1.75rem */
+  text-align: left;  
+  font-weight: bold;        /* default */
 }
 
-.punch{
+/* 📱 Mobile (max-width: 37.5rem / 600px) */
+@media (max-width: 37.5rem) {
+  .timer {
+    padding-left: 0;         /* no offset on mobile */
+    text-align: center;      /* center text */
+    font-size: 1.25rem;      /* shrink font */
+    margin-top: 0.5rem;
+  }
+}
+
+/* 📱 Tablet (max-width: 64rem / 1024px) */
+@media (max-width: 64rem) {
+  .timer {
+    padding-left: 20%;       /* smaller offset */
+    font-size: 1.5rem;       /* slightly smaller font */
+  }
+}
+
+
+
+.hours-text {
+  margin-left: 0.3rem; /* default gap on large screens */
+  font-weight: bold;
+}
+
+/* 📱 Mobile (max-width: 37.5rem / 600px) */
+@media (max-width: 37.5rem) {
+  .hours-text {
+    margin-left: 0.25rem; /* smaller gap on small screens */
+  }
+}
+
+/* 📱 Tablet (max-width: 64rem / 1024px) */
+@media (max-width: 64rem) {
+  .hours-text {
+    margin-left: 0.4rem; /* medium gap on tablets */
+  }
+}
+
+
+
+
+
+                               /* Punch In Box */
+
+
+                               /* Original styles converted to rem/% where needed */
+.punch {
   position: absolute;
-  width: 650px;
-  height: 120px;
+  width: 25rem;         /* 650px → 40.625rem */
+  height: 6.5rem;           /* 120px → 7.5rem */
   background-color: #E7E7E7;
-  
 
-  border-top: 2px solid #B6B6B6;
+  border-top: 0.125rem solid #B6B6B6;
+  border-left: 0.125rem solid #B6B6B6;
+  border-right: 0.125rem solid #B6B6B6;
 
-  border-left: 2px solid #B6B6B6;
-  border-right: 2px solid #B6B6B6;
-  
-  
-  top: 270px;
-  left: 20px;
- 
-}
-
- .punch-in-button{
-  position: absolute;
-  width: 150px;
-  height: 50px;
-  background-color: #249224;
-  border-radius: 10px;
-  color: white;
-  top: 20px;
-  left: 250px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.punch-in-button:hover {
-   background-color: #249224;
-  transform: scale(1.05);
-}
-
-.punch-out{
-   position: absolute;
-  width: 750px;
-  height: 120px;
-  background-color: #E7E7E7;
-
-  border-top: 2px solid #B6B6B6;
-
-  border-left: 2px solid #B6B6B6;
-  border-right: 2px solid #B6B6B6;
-  
-  top: 270px;
-  left: 735px;
- 
-}
-
-.punch-out-button{
-  position: absolute;
-  width: 150px;
-  height: 50px;
-  background-color: red;
-  border-radius: 10px;
-  color: white;
-  top: 20px;
-  left: 250px;
-  cursor: pointer;
-  transition: 0.3s ease;
+  top: 12rem;           /* 270px → 16.875rem */
+  left: 1.25rem;            /* 20px → 1.25rem */
 }
 
 .punch-in-button {
   position: absolute;
-  width: 150px;
-  height: 50px;
+  width: 7.375rem;          /* 150px → 9.375rem */
+  height: 2.125rem;         /* 50px → 3.125rem */
   background-color: #249224;
-  border-radius: 10px;
+  border-radius: 0.625rem;  /* 10px → 0.625rem */
   color: white;
-  top: 20px;
-  left: 250px;
+  top: 1.25rem;             /* 20px → 1.25rem */
+  left: 9.625rem;          /* 250px → 15.625rem */
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -389,36 +729,73 @@ top : 25px;
   transform: scale(1.05);
 }
 
-/* Disabled state for Punch In */
 .punch-in-button:disabled {
   background-color: darkgrey;
   cursor: not-allowed;
   transform: none;
 }
 
+/* 📱 Mobile (max-width: 37.5rem / 600px) */
+@media (max-width: 37.5rem) {
+  .punch {
+    width: 95%;             /* nearly full width */
+    left: 2.5%;             /* small horizontal margin */
+    top: 10rem;             /* adjust vertical position */
+    height: auto;           /* grow automatically if content expands */
+  }
+
+  .punch-in-button {
+    width: 80%;             /* larger relative width on mobile */
+    left: 10%;              /* center-ish */
+    top: 1rem;              /* adjust vertical spacing */
+    height: 3rem;           /* slightly smaller */
+  }
+}
+
+/* 📱 Tablet (max-width: 64rem / 1024px) */
+@media (max-width: 64rem) {
+  .punch {
+    width: 90%;             /* slightly narrower */
+    left: 5%;
+    top: 14rem;
+  }
+
+  .punch-in-button {
+    width: 10rem;           /* adjust width in rem */
+    left: 12%;
+    top: 1rem;
+  }
+}
+
+
+
+
+
+
+                                     /* Punch Out Box */
 /* Punch Out Box */
 .punch-out {
   position: absolute;
-  width: 750px;
-  height: 120px;
+  width: 25rem ;          /* 750px → 46.875rem */
+  height: 6.5rem;            /* 120px → 7.5rem */
   background-color: #E7E7E7;
-  border-top: 2px solid #B6B6B6;
-  border-left: 2px solid #B6B6B6;
-  border-right: 2px solid #B6B6B6;
-  top: 270px;
-  left: 735px;
+  border-top: 0.125rem solid #B6B6B6;
+  border-left: 0.125rem solid #B6B6B6;
+  border-right: 0.125rem solid #B6B6B6;
+  top: 12rem;            /* 270px → 16.875rem */
+  left: 29.9375rem;          /* 735px → 45.9375rem */
 }
 
 /* Punch Out Button */
 .punch-out-button {
   position: absolute;
-  width: 150px;
-  height: 50px;
+  width: 7.375rem;           /* 150px → 9.375rem */
+  height: 2.125rem;          /* 50px → 3.125rem */
   background-color: red;
-  border-radius: 10px;
+  border-radius: 0.625rem;   /* 10px → 0.625rem */
   color: white;
-  top: 20px;
-  left: 250px;
+  top: 1.25rem;              /* 20px → 1.25rem */
+  left: 9.625rem;           /* 250px → 15.625rem */
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -428,14 +805,13 @@ top : 25px;
   transform: scale(1.05);
 }
 
-/* Disabled state for Punch Out */
 .punch-out-button:disabled {
   background-color: darkgrey;
   cursor: not-allowed;
   transform: none;
 }
 
-
+/* Popup Overlay & Box */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -451,27 +827,27 @@ top : 25px;
 
 .popup-box {
   background: #E7E7E7;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 1.25rem;          /* 20px → 1.25rem */
+  border-radius: 0.625rem;   /* 10px → 0.625rem */
   text-align: center;
-  min-width: 300px;
+  min-width: 18.75rem;       /* 300px → 18.75rem */
 }
 
 .popup-box h3 {
-  margin-bottom: 15px;
+  margin-bottom: 0.9375rem;  /* 15px → 0.9375rem */
 }
 
 .popup-box button {
   display: block;
   width: 100%;
-  padding: 10px;
-  margin-top: 8px;
+  padding: 0.625rem;         /* 10px → 0.625rem */
+  margin-top: 0.5rem;        /* 8px → 0.5rem */
   border: none;
-  border-radius: 5px;
+  border-radius: 0.3125rem;  /* 5px → 0.3125rem */
   cursor: pointer;
   background: #B6B6B6;
   color: black;
-  font-size: 16px;
+  font-size: 1rem;           /* 16px → 1rem */
   transition: 0.2s ease;
 }
 
@@ -479,183 +855,607 @@ top : 25px;
   transform: scale(1.05);
 }
 
+/* 📱 Mobile (max-width: 37.5rem / 600px) */
+@media (max-width: 37.5rem) {
+  .punch-out {
+    width: 95%;
+    left: 2.5%;
+    top: 10rem;
+    height: auto;
+  }
 
+  .punch-out-button {
+    width: 80%;
+    left: 10%;
+    top: 1rem;
+    height: 3rem;
+  }
 
+  .popup-box {
+    width: 90%;
+    padding: 1rem;
+    min-width: unset;
+  }
 
-
-
-.main-attendance {
-  position: absolute;
-  top: 495px;
-  left: 14px;
-height: 420px;
-width: 30%;
-  padding: 20px;
-  box-sizing: border-box;
-  border-top: 2px solid #B6B6B6;
-
-  border-left: 2px solid #B6B6B6;
-  border-right: 2px solid #B6B6B6;
-  border-bottom: 2px solid #B6B6B6;
-  border-radius: 10px;
-
+  .popup-box button {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
 }
-.main-attendance-punch{
+
+/* 📱 Tablet (max-width: 64rem / 1024px) */
+@media (max-width: 64rem) {
+  .punch-out {
+    width: 90%;
+    left: 5%;
+    top: 14rem;
+  }
+
+  .punch-out-button {
+    width: 10rem;
+    left: 12%;
+    top: 1rem;
+  }
+
+  .popup-box {
+    width: 80%;
+  }
+}
+
+
+
+                                      /*Three boxes atarted from here  */
+
+
+ .main-attendance {
   position: absolute;
-  top: 70px;
-  left: 10px;
-  height: 50px;
-  width: 95%;
-  padding: 20px;
+  top: 22rem; /* 495px ≈ 30.9rem if 1rem = 16px */
+  left: 0.9rem; /* 14px ≈ 0.9rem */
+  height: 25rem; /* 420px ≈ 26.25rem */
+  width: 30%;
+  padding: 1.25rem; /* 20px ≈ 1.25rem */
   box-sizing: border-box;
+  border-top: 0.125rem solid #B6B6B6;
+  border-left: 0.125rem solid #B6B6B6;
+  border-right: 0.125rem solid #B6B6B6;
+  border-bottom: 0.125rem solid #B6B6B6;
+  border-radius: 0.625rem;
+
+
+  
+}
+
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .main-attendance {
+    top: 10rem;            /* shift down */
+    left: 5%;              /* give margin on sides */
+    width: 90%;            /* full width on mobile */
+    height: auto;          /* let height grow with content */
+    padding: 1rem;         /* slightly smaller padding */
+    position: relative;    /* take out of absolute to flow naturally */
+  }
+}
+
+/* 📝 Tablet (max-width: 56.25rem → 900px) */
+@media (max-width: 56.25rem) {
+  .main-attendance {
+    top: 15rem;
+    left: 5%;
+    width: 80%;
+    height: auto;
+  }
+}
+
+
+
+.records-title {
+  font-size: 1rem; /* 22px */
+  margin: -0.75rem; /* -12px */
+}
+
+/* Mobile screens */
+@media (max-width: 37.5rem) {
+  .records-title {
+    font-size: 1rem; /* smaller text */
+    margin: -0.5rem; /* smaller margin */
+  }
+}
+
+
+
+
+
+.main-attendance-punch {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  border: .1rem solid #B6B6B6;
+  border-radius: 2rem;
+  width: 100%;
+  margin-left: auto;   /* center horizontally */
+  margin-right: auto;
+  margin-top: 1rem;
+  padding: 1rem;
+
+  /* 🔹 added height */
+   height: 2rem;  
     background-color: #E7E7E7;
-
-  border-top: 2px solid #B6B6B6;
-
-  border-left: 2px solid #B6B6B6;
-  border-right: 2px solid #B6B6B6;
-  border-bottom: 2px solid #B6B6B6;
-  border-radius: 10px;
+  
 }
+
+
+.punch-title {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+  margin-top: -.6rem;
+}
+
+.punch-time {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+  margin-top: -3.6rem;
+  margin-left: 7.7rem;
+}
+
+/* 📱 Mobile */
+@media (max-width: 37.5rem) {
+  .main-attendance-punch {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .punch-title, .punch-time {
+    font-size: 1rem;
+  }
+}
+
+
+
+
 
 .punch-in-timer {
-  width: 120px;
-  height: 110px;
-  border-radius: 70%;
-  border: 8px solid #B6B6B6;
   display: flex;
-  flex-direction: column; /* Stack items vertically */
+  flex-direction: column;        /* stack text vertically */
+  align-items: center;
+  justify-content: center;
+
+  width: 8rem;                   /* fixed width */
+  height: 8rem;                  /* same as width */
+  border: 0.15rem solid #B6B6B6;
+  border-radius: 50%;            /* perfect circle */
+  background-color: #fff;
+
+  margin: 1rem auto;
+  font-size: 1.5rem;
+  font-weight: 500;
+   /* border: -5rem solid #B6B6B6; */
+   margin-top: 0.5rem;
+}
+
+/* make time number stand out */
+.punch-in-timer .time {
+  font-weight: bold;
+}
+
+/* mobile: shrink a bit */
+@media (max-width: 37.5rem) {
+  .punch-in-timer {
+    font-size: 1.2rem;
+    padding: 0.4rem 0.8rem;
+    gap: 0.3rem;
+  }
+}
+
+
+
+
+.main-attendance-break {
+  display: flex;
+  flex-direction: column;   /* label on top, box below */
+  align-items: center;
+  margin: 1.4rem ;
+  
+}
+
+/* Label above the box */
+.break-label {
+  font-size: 1rem;
+  font-weight: normal;
+  /* margin-bottom: 0.5rem; */
+   margin-left:-10rem;
+   margin-top: -2.1rem;
+   display :flex;
+   position: absolute;
+}
+
+/* Box for the time */
+.break-box {
+  display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
-  color: black;
-  font-weight: normal;
-  position: absolute;
-  top: 60px;
-  left: 150px;
-}
 
-.main-attendance-extra-time{
-position: absolute;
-  top: 270px;
-  left: 260px;
-  height: 50px;
-  width: 40%;
-  padding: 20px;
-  box-sizing: border-box;
-   
+  width: 7rem;
+  height: 2.3rem;
 
-  border-top: 2px solid #B6B6B6;
+  border: 0.15rem solid #B6B6B6;
+  border-radius: 1rem;
+  background-color: #fff;
 
-  border-left: 2px solid #B6B6B6;
-  border-right: 2px solid #B6B6B6;
-  border-bottom: 2px solid #B6B6B6;
-  border-radius: 10px;
-}
-
-.main-attendance-break{
-position: absolute;
-  top: 270px;
-  left: 10px;
-  height: 50px;
-  width: 42%;
-  padding: 20px;
-  box-sizing: border-box;
-
-  border-top: 2px solid #B6B6B6;
-
-  border-left: 2px solid #B6B6B6;
-  border-right: 2px solid #B6B6B6;
-  border-bottom: 2px solid #B6B6B6;
-  border-radius: 10px
-
-}
-
-
-.email-box{
-  position: absolute;
-  top: 495px;
-  left: 545px;
-  height: 420px;
-  width: 30%;
-  padding: 20px;
-  box-sizing: border-box;
-  border-top: 2px solid #B6B6B6;
-
-  border-left: 2px solid #B6B6B6;
-  border-right: 2px solid #B6B6B6;
-  border-bottom: 2px solid #B6B6B6;
-  border-radius: 10px;
-}
-
-.search-container {
   position: relative;
-  width: 400px;
-  margin-top: 2rem;
+  left: -5rem;   /* same effect as margin-left: -9rem */
+  top: -1rem;    /* same effect as margin-top: -2rem */
 }
 
+.break-time {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+@media (max-width: 37.5rem) { /* ~600px mobile */
+  .break-box {
+    width: 5rem;
+    height: 2rem;
+    left: -3rem;  /* adjust shift on small screens */
+    top: -1rem;
+  }
+}
+
+
+  .break-time {
+    font-size: 1rem;
+  }
+
+  .break-label {
+    font-size: 0.9rem;
+  }
+
+
+
+
+
+
+
+.main-attendance-extra-time {
+  display: flex;
+  flex-direction: column;   /* label on top, box below */
+  align-items: center;
+  margin: 1rem auto;
+  margin-top: 2.7rem;
+}
+
+/* Label above the box */
+.extra-label {
+  font-size: 1rem;
+  font-weight: normal;
+  /* margin-bottom: 0.5rem; */
+  margin-top: -7.1rem;
+  margin-left: 10rem;
+  display: flex;
+  position: absolute;
+  
+}
+
+/* Box for the time */
+
+.extra-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 7rem;
+  height: 2.3rem;
+
+  border: 0.15rem solid #B6B6B6;
+  border-radius: 1rem;
+  background-color: #fff;
+
+  position: relative;
+  left: 9rem;    /* same as margin-left */
+  top: -6rem;    /* same as margin-top */
+  margin-right: 8rem;
+}
+
+.extra-time {
+  font-size: 1.2rem;
+  font-weight: 500;
+  
+
+}
+
+/* 📱 Mobile responsive adjustments */
+@media (max-width: 37.5rem) { /* ~600px */
+  .extra-box {
+    width: 5rem;      /* smaller width */
+    height: 2rem;     /* smaller height */
+    left: 3rem;       /* adjust horizontal position */
+    top: -3rem;       /* adjust vertical position */
+    margin-right: 2rem;
+  }
+}
+
+  .extra-time {
+    font-size: 1rem;
+  }
+
+  .extra-label {
+    font-size: 0.9rem;
+  }
+
+
+
+
+
+
+.exceptions {
+  position: relative;
+  width: 100%;
+  min-height: 15rem; /* space to place everything */
+}
+
+/* Title */
+.title {
+  position: absolute;
+  top: -7rem;  /* instead of 300px */
+  left: 25%;   /* relative to parent */
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Late Check In */
+.late {
+  position: absolute;
+  top: -4rem;        /* adjust per need */
+  left: -6%;
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
+/* Excess Break */
+.excess {
+  position: absolute;
+  top: -2rem;
+  left: -6%;
+  font-size: .8rem;
+  font-weight: normal;
+}
+
+/* Forget Check Out */
+.forget {
+  position: absolute;
+  top: -4rem;
+  left: 44%;
+  font-size: .8rem;
+  font-weight: normal;
+}
+
+/* Multiple Check In */
+.multiple {
+  position: absolute;
+  top: -2rem;
+  left: 44%;
+  font-size: .8rem;
+  font-weight: normal;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .title {
+    top: 5rem;
+    left: 10%;
+    font-size: 1.25rem;
+  }
+
+  .late, .excess, .forget, .multiple {
+    position: static;   /* stack vertically */
+    display: block;
+    margin-top: 0.5rem;
+    margin-left: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.email-box {
+  position: absolute;
+  top: 22rem;   /* 495px ≈ 30.9rem */
+  left: 20.3rem;  /* 545px ≈ 34.1rem */
+  height: 25rem; /* 420px ≈ 26.25rem */
+  width: 30%;
+  padding: 1.25rem; /* 20px ≈ 1.25rem */
+  box-sizing: border-box;
+  border-top: 0.125rem solid #B6B6B6;
+  border-left: 0.125rem solid #B6B6B6;
+  border-right: 0.125rem solid #B6B6B6;
+  border-bottom: 0.125rem solid #B6B6B6;
+  border-radius: 0.625rem;
+}
+
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .email-box {
+    position: relative;  /* let it flow under main-attendance */
+    top: auto;
+    left: auto;
+    width: 90%;          /* full width on small screens */
+    height: auto;        /* grow naturally */
+    margin: 1rem auto;   /* center horizontally */
+    padding: 1rem;
+  }
+}
+
+/* 📝 Tablet (max-width: 56.25rem → 900px) */
+@media (max-width: 56.25rem) {
+  .email-box {
+    left: 5%;
+    width: 80%;
+    height: auto;
+    top: 15rem; /* adjust spacing from top */
+  }
+}
+
+
+
+
+/* Heading inside email-box */
+.email-box h4 {
+  font-size: 1rem; /* 22px */
+  margin: 0 0 0.5rem 0;
+  margin-top: -.8rem;
+}
+
+/* Search containers */
+.search-container,
+.search-container2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+/* Input fields */
 .search-input {
   width: 100%;
-  padding: 10px;
-  border: 2px solid #B6B6B6;
-  border-radius: 8px;
-  outline: none;
+  padding: 0.625rem 0.75rem; /* ≈10px x 12px */
+  font-size: 1rem;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.375rem;
+  box-sizing: border-box;
 }
 
+/* Dropdown inside email-box */
 .dropdown {
-  position: absolute;
-  top: 40px;
-  left: 0;
   width: 100%;
-  background: white;
-  border: 1px solid #B6B6B6;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1;
-  font-size: 100%;
-  font-weight: normal;
-
+  border: 0.0625rem solid #ccc;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 0.375rem;
 }
 
 .dropdown-option {
-  padding: 8px;
-  margin: 0;
+  padding: 0.5rem 0.75rem;
   cursor: pointer;
 }
 
 .dropdown-option:hover {
-  background-color: #B6B6B6;
-}
-.search-container2 {
-  position: relative;
-  width: 400px;
-  margin-top: 2rem;
+  background: #f2f2f2;
 }
 
-.send-email-button{
-  position: absolute;
-  top: 220px;
-  width: 92%;
-  padding: 10px 20px;
-  background-color: #1717d0;
-  color: white;
+/* Button */
+.send-email-button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background-color: #868686;
+  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.375rem;
   cursor: pointer;
+  align-self: flex-start;
+  width: 100%;
+  margin-top: 1rem;
 }
 
-.today-activity{
-   position: absolute;
-  top: 495px;
-  left: 1065px;
-  height: 420px;
-  width: 30%;
-  padding: 20px;
-  box-sizing: border-box;
-  border-top: 2px solid #B6B6B6;
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .email-box h4 {
+    font-size: 1.125rem; /* scale heading */
+  }
 
-  border-left: 2px solid #B6B6B6;
-  border-right: 2px solid #B6B6B6;
-  border-bottom: 2px solid #B6B6B6;
-  border-radius: 10px;
+  .search-input {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.625rem;
+  }
+
+  .send-email-button {
+    width: 100%; /* full-width button on small screens */
+    text-align: center;
+  }
+}
+
+/* 📝 Tablet (max-width: 56.25rem → 900px) */
+@media (max-width: 56.25rem) {
+  .email-box h4 {
+    font-size: 1.25rem;
+  }
+
+  .send-email-button {
+    align-self: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.today-activity {
+  position: absolute;
+  top: 22rem;      /* 495px ≈ 30.9rem */
+  left: 39.5rem;     /* 1065px ≈ 66.6rem */
+  height: 25rem;  /* 420px ≈ 26.25rem */
+  width: 30%;
+  padding: 1.25rem;  /* 20px ≈ 1.25rem */
+  box-sizing: border-box;
+  border-top: 0.125rem solid #B6B6B6;
+  border-left: 0.125rem solid #B6B6B6;
+  border-right: 0.125rem solid #B6B6B6;
+  border-bottom: 0.125rem solid #B6B6B6;
+  border-radius: 0.625rem;
+}
+
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .today-activity {
+    position: relative;  /* let it flow under the others */
+    top: auto;
+    left: auto;
+    width: 90%;          /* full width on small screens */
+    height: auto;        /* grow naturally */
+    margin: 1rem auto;   /* center horizontally */
+    padding: 1rem;
+  }
+}
+
+/* 📝 Tablet (max-width: 56.25rem → 900px) */
+@media (max-width: 56.25rem) {
+  .today-activity {
+    left: 5%;
+    width: 80%;
+    height: auto;
+    top: 15rem; /* adjust spacing */
+  }
+}
+
+
+
+.activity-header{
+  font-size: 1rem; /* 22px */
+  margin: 0 0 0.5rem 0;
+  margin-top: -.8rem;
 }

@@ -297,7 +297,7 @@ const handleEndWork = () => {
 
 
 
-
+const [showOptionsOfEmail, setShowOptionsOfEmail] = useState(false);
 
                  
 
@@ -322,43 +322,28 @@ const handleEndWork = () => {
           {/* dynamic Box Container */}
 
           <div className="dynamic-box">
-            <div className="attendance-boxes">
-              <h2 className="attendance-heading">Attendance</h2>
-              <p style={{ margin: 0 }}>
-                {currentDateTime.toLocaleDateString("en-US", dateOptions)}
-              </p>
 
-              <p style={{ margin: 0 }}>
-                {currentDateTime.toLocaleTimeString("en-US", timeOptions)}
-              </p>
+             <div className="attendance-boxes"> 
 
-              <p
-                style={{
-                  paddingLeft: "55%",
-                  marginTop: "-95px",
-                  fontSize: "22px",
-                }}
-              >
-                Your Office/Work Timings
-              </p>
-              <p
-                style={{
-                  paddingLeft: "40%",
-                  marginTop: "10px",
-                  fontSize: "15px",
-                }}
-              >
-                Start Time <br></br> 09:00 AM
-              </p>
-              <p
-                style={{
-                  paddingLeft: "81%",
-                  marginTop: "-50px",
-                  fontSize: "15px",
-                }}
-              >
-                End Time <br></br> 07:00 PM
-              </p>
+
+
+               <h2 className="attendance-heading">Attendance</h2>
+<p className="current-date">
+  {currentDateTime.toLocaleDateString("en-US", dateOptions)}
+</p>
+<p className="current-time">
+  {currentDateTime.toLocaleTimeString("en-US", timeOptions)}
+</p>
+
+<p className="work-timings">Your Office/Work Timings</p>
+<p className="start-time">
+  Start Time <br /> 09:00 AM
+</p>
+<p className="end-time">
+  End Time <br /> 07:00 PM
+</p>
+
+
 
               <div className="Atten-meter">
   <div className="meter" style={{ width: `${progress}%` }}></div>
@@ -368,8 +353,15 @@ const handleEndWork = () => {
 
 
 <p className="timer">
-  {formatTime(seconds)} <br /> Hours
+  {formatTime(seconds)} <br></br> 
+  <span className="hours-text">Hours</span>
 </p>
+
+
+
+
+
+
 
 <div className="punch">
   <button
@@ -379,9 +371,9 @@ const handleEndWork = () => {
   >
     PUNCH IN
   </button>
-</div>
+</div> 
 
-<div className="punch-out">
+ <div className="punch-out">
   <button
     className="punch-out-button"
     onClick={handlePunchOut}
@@ -389,7 +381,7 @@ const handleEndWork = () => {
   >
     PUNCH OUT
   </button>
-</div>
+</div> 
 
 {/* Work Mode popup (first punch in) */}
 {showWorkModePopup && (
@@ -432,210 +424,147 @@ const handleEndWork = () => {
              
 
 
+            </div> 
+
+
+                      { /*  Three boxes start*/}
 
 
 
 
-            </div>
+                            {/* Records box */}
 
-            <div className="main-attendance">
-              <h4 style={{ fontSize: "22px", margin: "-12px" }}>Records</h4>
-              <div className="main-attendance-punch">
-                <p>
-                  <h4
-                    style={{
-                      margin: "-24px",
-                      marginLeft: "45px",
-                      fontSize: "20px",
-                      fontWeight: "normal",
-                      marginTop: "-9px",
-                    }}
-                  >
-                    Punch In
-                  </h4>
-                </p>
-                <p>
-                 
-  <h4
-  style={{
-    // margin: "-44px",
-    marginLeft: "18rem",
-    fontSize: "20px",
-    fontWeight: "normal",
-    marginTop: "-2rem",
-  }}
->
-  {latestPunchInTime
-    ? latestPunchInTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
-    : "00:00"}
-</h4>
+             <div className="main-attendance">
 
-</p>
+            
 
-               <div className="punch-in-timer">
-  <p>{formatTime(extraTime)}</p>
-  <p>hours</p>
+                     <h4 className="records-title">Records</h4>
+
+
+              
+
+<div className="main-attendance-punch">
+  <p>
+    <h4 className="punch-title">Punch In</h4>
+  </p>
+  <p>
+    <h4 className="punch-time">
+      {latestPunchInTime
+        ? latestPunchInTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+        : "00:00"}
+    </h4>
+  </p>
 </div>
 
 
-              </div>
-              <div className="main-attendance-break">
-                <p>
-                  <h4
-    style={{
-      margin: "-24px",
-      marginLeft: "48px",
-      marginTop: "-42px",
-      fontSize: "15px",
-      fontWeight: "normal",
-    }}
-  >
-    Break
-  </h4>
- <h4
-  style={{
-    margin: "-24px",
-    marginLeft: "14px",
-    fontSize: "20px",
-    fontWeight: "normal",
-    marginTop: "29px",
-  }}
->
-  {formatTime(breakTime)} hours
-</h4>
-
-                </p>
-              </div>
-              <div className="main-attendance-extra-time">
-                <p>
-                  <h4
-                    style={{
-                      margin: "-24px",
-                      marginLeft: "41px",
-                      marginTop: "-40px",
-                      fontSize: "15px",
-                      fontWeight: "normal",
-                    }}
-                  >
-                    Extra Time
-                  </h4>
-                </p>
-                <p>
-                  <h4
-                    style={{
-                      margin: "-24px",
-                      marginLeft: "20px",
-                      fontSize: "20px",
-                      fontWeight: "normal",
-                      marginTop: "26px",
-                    }}
-                  >
-                    00:00 hours
-                  </h4>
-                </p>
-              </div>
-
-              <p style={{ marginTop: "300px", marginLeft: "40%" }}>
-                Exceptions
-              </p>
-
-              <p
-  style={{
-    fontSize: "18px",
-    fontWeight: "normal",
-    marginTop: "10px",
-  }}
->
-  Late Check In : 0
-</p>
-
-              <p
-                style={{
-                  fontSize: "18px",
-                  fontWeight: "normal",
-                  marginTop: "-5px",
-                }}
-              >
-                Excess Break : 0
-              </p>
-              <p
-                style={{
-                  fontSize: "18px",
-                  fontWeight: "normal",
-                  marginTop: "-47px",
-                  marginLeft: "230px",
-                }}
-              >
-                Forget Check Out : 0
-              </p>
-              <p
-                style={{
-                  fontSize: "18px",
-                  fontWeight: "normal",
-                  marginTop: "-5px",
-                  marginLeft: "230px",
-                }}
-              >
-                Multiple Check In : 0
-              </p>
-            </div>
 
 
-             <div className="email-box">
-              <h4
-                style={{
-                  fontSize: "22px",
-                  marginTop: "-10px",
-                  marginLeft: "-10px",
-                }}
-              >
-                Send Email Reminder
-              </h4>
-              <div className="search-container">
-                {/* Search Input */}
-                <input
-                  type="text"
-                  className="search-input"
-                  placeholder="Search..."
-                  onFocus={() => setShowOptions(true)}
-                  onBlur={() => setShowOptions(false)}
-                />
+<div className="punch-in-timer">
+  <p className="time">{formatTime(extraTime)}</p>
+  <p className="label">hours</p>
+</div>
 
-                {/* Hidden Dropdown Options */}
-                {showOptions && (
-                  <div className="dropdown">
-                    <p className="dropdown-option">Late</p>
-                    <p className="dropdown-option">Excess Leave</p>
-                    <p className="dropdown-option">Exceeds Deadline</p>
-                    <p className="dropdown-option">Forget Check Out</p>
-                    <p className="dropdown-option">Multiple Check In</p>
-                  </div>
-                )}
-              </div>
-              <p> </p>
-              <div className="search-container2">
-                {/* Search Input */}
-                <input
-                  type="text"
-                  className="search-input"
-                  placeholder="-  -  -"
-                  onFocus={() => setShowOptions(true)}
-                  onBlur={() => setShowOptions(false)}
-                />
-              </div>
-              <button className="send-email-button">Set Reminder</button>
-            </div>
+
+
+             
+
+
+<div className="main-attendance-break">
+  <h4 className="break-label">Break</h4>
+  <div className="break-box">
+    <span className="break-time">{formatTime(breakTime)} hours</span>
+  </div>
+</div>
+        
+
+
+
+
+<div className="main-attendance-extra-time">
+  <h4 className="extra-label">Extra Time</h4>
+  <div className="extra-box">
+    <span className="extra-time">00:00 hours</span>
+  </div>
+</div>
+
+
+
+
+<div className="exceptions">
+  <p className="title">Exceptions</p>
+
+  <p className="late">Late Check In : 0</p>
+  <p className="excess">Excess Break : 0</p>
+  <p className="forget">Forget Check Out : 0</p>
+  <p className="multiple">Multiple Check In : 0</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+            </div> 
+
+
+
+
+
+<div className="email-box">
+      <h4>Send Email Reminder</h4>
+
+      <div className="search-container">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="Search..."
+          onFocus={() => setShowOptionsOfEmail(true)}
+          onBlur={() => setShowOptionsOfEmail(false)}
+        />
+
+        {showOptions && (
+          <div className="dropdown">
+            <p className="dropdown-option">Late</p>
+            <p className="dropdown-option">Excess Leave</p>
+            <p className="dropdown-option">Exceeds Deadline</p>
+            <p className="dropdown-option">Forget Check Out</p>
+            <p className="dropdown-option">Multiple Check In</p>
+          </div>
+        )}
+      </div>
+
+      <div className="search-container2">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="-  -  -"
+          onFocus={() => setShowOptionsOfEmail(true)}
+          onBlur={() => setShowOptionsOfEmail(false)}
+        />
+      </div>
+
+      <button className="send-email-button">Set Reminder</button>
+    </div>
+
+
+
+
+
+
+
+            
+            
             <div className="today-activity">
-              <h4
-                style={{
-                  fontSize: "22px",
-                  marginTop: "-10px",
-                  marginLeft: "-10px",
-                }}
-              >
-                Today Activity
-              </h4>
-            </div>
+             <div className="activity-header"> Today Activity</div>
+
+            </div> 
+
+
+
           </div>
         </div>
       </div>

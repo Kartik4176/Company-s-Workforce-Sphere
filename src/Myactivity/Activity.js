@@ -5,7 +5,7 @@ import "./Activity.css";
 import Sidebar from "../Sidebars/Sidebar";
 import NavBaar from "../NavBar/NavBaar";
 
-function Dashboard() {
+function Activity() {
   return (
     <div className="main">
       <div className="mainbox">
@@ -91,4 +91,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Activity;
