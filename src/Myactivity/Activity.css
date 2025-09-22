@@ -148,7 +148,7 @@ html, body {
 }
 
 
-.boxe1{
+/* .boxe1{
   width: calc(25% - 1.25rem);
   height: 9rem;           
   margin-top: -22rem;
@@ -159,7 +159,7 @@ html, body {
   padding: 0.625rem;
   box-sizing: border-box;
   position: absolute;
-} 
+}  */
 
 
 .boxe2{
