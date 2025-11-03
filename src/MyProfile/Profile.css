@@ -431,7 +431,7 @@ html, body {
 .emp-name {
   position: absolute  ;
   font-size: 1.5rem !important;   /* 30px → rem */
-  margin-left: 9%;
+  margin-left: 36.5%;
   margin-top: 49%;
   font-weight: bold;
 }
@@ -467,7 +467,7 @@ html, body {
 @media (max-width: 37.5rem) {
   .emp-name {
     font-size: 1.5rem;
-    margin-left: 5%;
+    margin-left: 8%;
     margin-top: 2%;
     text-align: center;
   }
@@ -542,7 +542,7 @@ html, body {
   gap: 0.5rem 9.375rem;
   align-items: center;
 
-  margin-top: 16.6rem !important;  /* you can change to % if positioning relative to parent */
+  margin-top: 3.6rem !important;  /* you can change to % if positioning relative to parent */
   margin-left: 24rem !important;
   font-size: 1.1rem !important; /* 25px → rem */
 }
