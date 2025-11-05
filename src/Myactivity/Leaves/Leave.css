@@ -1,0 +1,661 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.main {
+  min-height: 100vh;
+  overflow-y: auto;
+  padding: 1.25rem;   /* 20px */
+}
+
+/* ============================= */
+/* 📱 Mobile devices (up to 37.5rem → 600px) */
+/* ============================= */
+@media (max-width: 37.5rem) {
+  body {
+    font-size: 0.875rem;   /* 14px */
+  }
+
+  .main {
+    padding: 0.625rem;     /* 10px */
+  }
+}
+
+/* ============================= */
+/* 📱➡️💻 Tablets (37.6rem - 64rem → 601px - 1024px) */
+/* ============================= */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  body {
+    font-size: 1rem;       /* 16px */
+  }
+
+  .main {
+    padding: 0.9375rem;    /* 15px */
+  }
+}
+
+/* ============================= */
+/* 💻 Desktops (64.06rem and above → 1025px+) */
+/* ============================= */
+@media (min-width: 64.06rem) {
+  body {
+    font-size: 1.125rem;   /* 18px */
+  }
+
+  .main {
+    padding: 1.25rem 2.5rem; /* 20px 40px */
+  }
+}
+
+ 
+
+
+
+.mainbox {
+  display: flex;
+  flex-wrap: wrap;       /* allow wrapping to next row */
+  gap: 1.25rem;          /* 20px */
+  padding: 0.625rem;     /* 10px */
+  justify-content: flex-start; 
+  align-items: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+.main-content {
+  position: absolute;
+  top: 1.5rem;          /* 24px */
+  left: 20rem;          /* 320px */
+  /* right: 3.25rem; → 52px, if needed later */
+}
+
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .mainbox {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .main-content {
+    position: static;        
+    margin-top: 1.25rem;   /* 20px */
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* 📱➡️💻 Tablets (37.6rem - 64rem → 601px - 1024px) */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  .mainbox {
+    justify-content: center;
+  }
+
+  .main-content {
+    left: 12.5rem;          /* 200px */
+    width: calc(100% - 12.5rem);
+  }
+}
+
+/* 💻 Desktops (64.1rem and above → 1025px+) */
+@media (min-width: 64.1rem) {
+  .mainbox {
+    justify-content: flex-start; 
+  }
+
+  .main-content {
+    left: 20rem;            /* 320px */
+    width: calc(100% - 20rem);
+  }
+}
+
+
+
+
+
+
+
+/* 
+
+.SlideBar td {
+  width: 250px;
+
+  border-radius: 10px;
+  padding: 10px;
+  height: 5vh;
+  
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.SlideBar {
+  position:absolute;
+  top: 5px;
+  left: 5px;
+  height: 100vh;
+  width: 330px;
+  position:absolute;
+  display: flex;
+}
+
+.SlideBar td:hover {
+  background-color: #69695c;
+  cursor: pointer;
+  border-radius: 55px;
+}
+
+.table-border {
+  border-right: 1px solid black;
+  border-collapse: collapse;
+}
+
+
+
+.main-content {
+
+
+  position:absolute;
+  top:24px;
+  left:320px;
+
+  
+}
+
+
+
+
+             
+
+
+.navbar td {
+  width: 280px;
+
+
+  padding: 10px;
+  margin: 10px;
+  height: 2vh;
+
+  
+}
+
+.navbar {
+  
+  top: 5px;
+  left: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;;
+}
+
+
+
+.navbar td2{
+  left  : 20px;
+  padding :15px;
+}
+
+
+
+ */
+
+
+                                             /* Dashboard */
+
+    /* .dashboards  {
+  
+  position:absolute;
+  top: 80px;
+  left: 0px;
+  padding-left: 4px;
+  padding-top: 5px;
+  background-color:  #EBF5F0;
+  border-radius: 5px;
+  width: 98%; */
+                                      
+
+
+                                         
+                                           /* Ticket  */
+
+
+
+
+
+
+.ticket-container {
+  position: absolute;
+  top: 10rem;         /* instead of 160px */
+  left: 0;
+  width: 98%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background-color: #5416cf;
+  box-sizing: border-box;
+}
+
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .ticket-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    top: 7.5rem;      /* instead of 120px */
+    padding: 1.5rem;
+    width: 100%;
+  }
+}
+
+/* 📱➡️💻 Tablets (601px - 1024px → 37.6rem - 64rem) */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  .ticket-container {
+    flex-direction: row;
+    justify-content: space-around;
+    top: 9rem;        /* instead of 140px */
+    width: 96%;
+  }
+}
+
+/* 💻 Desktops (1025px and above → 64.1rem+) */
+@media (min-width: 64.1rem) {
+  .ticket-container {
+    flex-direction: row;
+    justify-content: space-between;
+    top: 10rem;       /* original */
+    width: 98%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+                                              /* Main Content */
+
+/* Your existing CSS */
+.box-container {
+  position: absolute;
+  top: 15rem;
+  left: 17rem;          
+  width: 100%;
+  padding: 0.625rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fcfbfe;
+  box-shadow: 0 0 0.75rem rgba(66, 142, 76, 0.4);
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .box-container {
+    top: 8rem;         /* reduce vertical offset */
+    left: 0;           /* no horizontal offset */
+    width: 100%;       /* full width */
+    padding: 1rem;
+    flex-direction: column; /* stack items vertically */
+    gap: 2rem;
+  }
+}
+
+/* 📱 Tablet (max-width: 64rem → 1024px) */
+@media (max-width: 64rem) {
+  .box-container {
+    left: 2rem;         /* smaller horizontal offset */
+    top: 12rem;         /* reduce vertical offset */
+    width: 96%;         /* leave small margin */
+    gap: 1.5rem;
+  }
+}
+
+
+
+.dynamic-box {
+  position: relative;     
+  width: 100%;
+  background-color: #f5f5f5;
+
+  display: flex;
+  flex-direction: column; 
+  gap: 1.25rem;          
+  padding: 0.625rem;      
+  box-sizing: border-box;
+
+  border-left: 0.0625rem solid #7e7a8f;  
+  border-right: 0.0625rem solid #7e7a8f;
+  border-bottom: .4rem solid #7e7a8f;
+  font-weight: bold;
+
+  height: auto;       /* grow with content */
+  min-height: 48rem;  /* optional minimum height */
+  margin-top: -40rem;
+}
+
+
+
+
+
+
+
+
+/* 📱 Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .dynamic-box {
+    top: 8rem;             /* adjust so it doesn’t overlap */
+    width: 100%;           /* take full width */
+    gap: 1rem;             
+    padding: 1rem;
+  }
+}
+
+/*  Tablets (37.6rem - 64rem → 601px - 1024px) */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  .dynamic-box {
+    top: 12rem;            /* slightly reduced */
+    width: 96%;
+    gap: 1.125rem;         /* ~18px */
+    padding: 0.875rem;     /* ~14px */
+  }
+}
+
+/*  Desktops (64.06rem and above → 1025px+) */
+@media (min-width: 64.06rem) {
+  .dynamic-box {
+    top: 15.2rem;          /* original spacing */
+    width: 98%;
+    gap: 1.25rem;
+    padding: 0.625rem;
+  }
+}
+
+
+
+
+
+                         /* Main Content Start from here */
+
+
+.main-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto 0 auto; /* removes vertical spacing, keeps horizontal centering */
+  margin-top: -34rem; /* small breathing room from the top */
+  
+}
+
+
+.box1, .box2, .box3 {
+  background-color: #ffffff;
+  border: 0.0625rem solid #d1d1d1;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+  flex: 1 1 30%; /* three per row */
+  height: 10rem;
+}
+
+/*  Mobile (max-width: 37.5rem → 600px) */
+@media (max-width: 37.5rem) {
+  .box1, .box2, .box3 {
+    flex: 1 1 100%;
+  }
+}
+
+/*  Tablets (37.6rem - 64rem → 601px - 1024px) */
+@media (min-width: 37.6rem) and (max-width: 64rem) {
+  .box1, .box2, .box3 {
+    flex: 1 1 45%;
+  }
+}
+
+/*  Desktops (64.06rem and above → 1025px+) */
+@media (min-width: 64.06rem) {
+  .box1, .box2, .box3 {
+    flex: 1 1 30%;
+  }
+}
+
+
+
+
+
+
+
+.leave-container {
+   
+    position: absolute;
+  background-color: #fff;
+  border-radius: 0.625rem;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 90%;
+  margin: 2rem auto;
+  overflow-x: auto;
+  margin-top: 8rem;
+  margin-left: 2.8rem;
+
+}
+
+.leave-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.leave-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.leave-header p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.leave-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.leave-table th,
+.leave-table td {
+  padding: 1rem;
+  border-bottom: 0.0625rem solid #e5e5e5;
+}
+
+.leave-table th {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.leave-table td {
+  font-size: 1rem;
+  color: #333;
+}
+
+.emp-id {
+  font-size: 0.875rem;
+  color: #777;
+}
+
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status.approved {
+  background-color: #c3f8d1;
+  color: #138a3d;
+}
+
+.status.pending { 
+    background-color: #fff1b8;
+ 
+  color: #8a6a00;
+}
+
+.view-btn {
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 0.3125rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.view-btn:hover {
+  background-color: #ff6600;
+  color: #fff;
+}
+
+/* ===================== MEDIA QUERIES ===================== */
+
+/* 1 */
+@media (max-width: 37.5rem) {
+  .leave-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .leave-table th,
+  .leave-table td {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* 2 */
+@media (min-width: 37.6rem) and (max-width: 48rem) {
+  .leave-container {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
+
+/* 3 */
+@media (min-width: 48.1rem) and (max-width: 64rem) {
+  .leave-container {
+    width: 92%;
+  }
+}
+
+/* 4 */
+@media (min-width: 64.1rem) and (max-width: 80rem) {
+  .leave-container {
+    width: 88%;
+  }
+}
+
+/* 5 */
+@media (min-width: 80.1rem) {
+  .leave-container {
+    width: 80%;
+  }
+}
+
+
+
+
+.footer {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 0.625rem;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 70%;
+  margin: 2rem auto;
+  /* overflow-x: auto; */
+  margin-top: 40rem;
+  margin-right: 2rem;
+  
+}
+
+.footer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* ===================== MEDIA QUERIES ===================== */
+
+/* 1 */
+@media (max-width: 37.5rem) {
+  .footer {
+    width: 96%;
+    padding: 1rem;
+    margin-left: 0;
+    margin-top: 4rem;
+  }
+
+  .footer-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* 2 */
+@media (min-width: 37.6rem) and (max-width: 48rem) {
+  .footer {
+    width: 94%;
+    padding: 1.25rem;
+    margin-left: 1rem;
+  }
+}
+
+/* 3 */
+@media (min-width: 48.1rem) and (max-width: 64rem) {
+  .footer {
+    width: 92%;
+    padding: 1.5rem;
+    margin-left: 1.5rem;
+  }
+}
+
+/* 4 */
+@media (min-width: 64.1rem) and (max-width: 80rem) {
+  .footer {
+    width: 88%;
+    padding: 1.75rem;
+    margin-left: 2rem;
+  }
+}
+
+/* 5 */
+@media (min-width: 80.1rem) {
+  .footer {
+    width: 85%;
+    padding: 2rem;
+    margin-left: 2.5rem;
+  }
+}

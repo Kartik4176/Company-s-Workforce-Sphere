@@ -21,6 +21,8 @@ import Time from './TimeSheet/Time';
 import Attendance from './Myactivity/Attend/Attendance';
 import Sidebar from './Sidebars/Sidebar';
 import NavBaar from './NavBar/NavBaar';
+import Leave from './Myactivity/Leaves/Leave';
+
 
 function App() {
   return (
@@ -31,7 +33,9 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/activity" element={<Activity />} />
         <Route path="/myactivity/attend" element={<Attendance />} />
+        <Route path="/myactivity/leaves" element={<Leave />} />
          <Route path="/attendance" element={<Attendance />} />
+         <Route path="/leave" element={<Leave />} />
         <Route path="/calenders" element={<Calenders />} />
         <Route path="/awating" element={<Awating />} />
         <Route path="/exits" element={<Exits />} />
@@ -41,6 +45,7 @@ function App() {
         <Route path="/performance" element={<PerformanceApprasial />} />
         <Route path="/report" element={<Report />} />
         <Route path="/time" element={<Time />} />
+        
 
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/navbaar" element={<NavBaar />} />

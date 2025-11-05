@@ -31,12 +31,13 @@ function Activity() {
 
   <div className="boxe2">
     <img src="/image/activity/leave.png" alt="Leave" />
-    <h3>Leave</h3>
+    <Link to="/leave"><h3>Leave</h3></Link>
   </div>
 
   <div className="boxe3">
     <img src="/image/activity/contract.png" alt="Regulization" />
     <h3>Regulization</h3>
+     
   </div>
 
   <div className="boxe4">
